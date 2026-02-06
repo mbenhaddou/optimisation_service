@@ -12,3 +12,6 @@ data/
 celerybeat-schedule
 celerybeat.pid
 .env
+node_modules/
+.next/
+out/

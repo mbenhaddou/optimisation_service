@@ -92,6 +92,22 @@ Configure:
 ### Mapping Service
 If you run a mapping server, set `MAPPING_SERVICE_URL` (or `ROUTING_ENGINE`) in `.env`.
 
+## Phase 2 Web Portal (Next.js)
+
+Portal lives in `services/web_portal`.
+
+### Local Run
+```bash
+cd services/web_portal
+npm install
+npm run dev
+```
+
+Set `.env.local` with:
+```
+NEXT_PUBLIC_API_BASE=http://localhost:8000
+```
+
 ## Requirements
 - Python 3.9
 - JSON for data input

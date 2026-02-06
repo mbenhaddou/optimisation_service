@@ -45,6 +45,17 @@ services:
       MAX_JOB_UNITS: ${MAX_JOB_UNITS:-0}
       MAPPING_SERVICE_URL: ${MAPPING_SERVICE_URL:-}
 
+  web:
+    build:
+      context: ./services/web_portal
+      dockerfile: Dockerfile
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_BASE: ${NEXT_PUBLIC_API_BASE:-http://localhost:8000}
+
   worker:
     build:
       context: .
