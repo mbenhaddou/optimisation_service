@@ -1,0 +1,2040 @@
+{
+  "period_start": "2023-09-25",
+  "optimization_horizon": 5,
+  "start_at": "depot",
+  "end_at": "depot",
+  "time_unit": "hours",
+  "distance_method": "osm",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "optimization_target": "duration",
+  "distribute_load": true,
+  "minimize_vehicles": false,
+  "account_for_priority": true,
+  "perform_advanced_optimization": true,
+  "time_multiplier": 1,
+  "depot": {
+    "id": "depot",
+    "city": "Wavre",
+    "street": "Av. Einstein 6",
+    "postal_code": 1300,
+    "country": "Belgium"
+  },
+  "orders": [
+    {
+      "id": "0000070005080010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 2",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 101",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005090010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 2",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 102",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005100010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 4",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 103",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005110010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 6",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 104",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005120010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 8",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 105",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005130010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 10",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 106",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005140010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. du Rossignol 1",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 107",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005150010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. du Rossignol 3",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 108",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005160010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. du Rossignol 5",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 109",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005170010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. du Rossignol 7",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 110",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005180010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Grosse-Pierre 14",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 111",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005190010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 7",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 112",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005200010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 3",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 113",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005210010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Fauvette 5",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 114",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005220010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de l'Alouette 9",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 115",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005230010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. du Pinson 2",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 116",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005240010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. du Pinson 4",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 117",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005250010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. du Pinson 6",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 118",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005260010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. du Pinson 8",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 119",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005270010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de l'Alouette 7",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 120",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005280010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. des Correvondes 1A",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 121",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005290010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. des Correvondes 1B",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 122",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005300010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. des Correvondes 3",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 123",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005310010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de l'Alouette 5",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 124",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005320010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. des Correvondes 2",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 125",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005330010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. des Correvondes 4",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 126",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005340010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. des Correvondes 6",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 127",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005350010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Grosse-Pierre 12",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 128",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005360010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la Grosse-Pierre 10",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 129",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005370010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la MÃ©sange 2",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 130",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005380010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la MÃ©sange 2A",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 131",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005390010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la MÃ©sange 4",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 132",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005400010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la MÃ©sange 6",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 133",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005410010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la MÃ©sange 8",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 134",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005420010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la MÃ©sange 10",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 135",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070005430010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Chem. de la MÃ©sange 3",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 136",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2023-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-12-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2023-09-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    }
+  ],
+  "teams": {
+    "251a": {
+      "depot": {
+        "id": "2510251A",
+        "city": "Morges",
+        "street": "Rue de Lausanne 53",
+        "postal_code": 1110,
+        "country": "Switzerland"
+      },
+      "workers": [
+        {
+          "e_id": "00000003",
+          "skills": [
+            "MECH"
+          ],
+          "city": "Uccle",
+          "street": "Rue de Stalle 333",
+          "postal_code": 1180,
+          "country": "Belgium",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "16:00:00",
+          "pause_starts_at": "0",
+          "pause_ends_at": "0",
+          "blocked_times": [],
+          "shifts": []
+        }
+      ]
+    },
+    "251b": {
+      "depot": {
+        "id": "2510251B",
+        "city": "Morges",
+        "street": "Rue de Lausanne 53",
+        "postal_code": 1110,
+        "country": "Switzerland"
+      },
+      "workers": [
+        {
+          "e_id": "00000004",
+          "skills": [
+            "MECH"
+          ],
+          "city": "Bouge",
+          "street": "Tienne de Bouge 5",
+          "postal_code": 5004,
+          "country": "Belgium",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "16:00:00",
+          "pause_starts_at": "0",
+          "pause_ends_at": "0",
+          "blocked_times": [],
+          "shifts": []
+        },
+        {
+          "e_id": "00000005",
+          "skills": [
+            "MECH"
+          ],
+          "city": "Rixensart",
+          "street": "ChaussÃ©e de Lasne 17",
+          "postal_code": 1330,
+          "country": "Belgium",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "16:00:00",
+          "pause_starts_at": "0",
+          "pause_ends_at": "0",
+          "blocked_times": [],
+          "shifts": []
+        }
+      ]
+    }
+  }
+}

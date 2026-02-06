@@ -1,0 +1,38 @@
+{"test_desc": "Test very basic with 1 worker and 1 order, same skills, same day,... depot - order : 5min by car, depot - worker home : 2min by car",
+  "orders": [
+    {"id": 1, "priority": 1, "skill": "MECANIQUE",
+      "city": "Honnelles", "street": "Rue du Paradis 1", "postal_code": 7387, "country": "Belgium",
+      "description": "This is a description of the problem",
+      "work_hours": 0.5,
+      "earliest_start_date": "2023-01-03", "earliest_start_time": "06:00:00",
+      "latest_end_date": "0", "latest_end_time": "0",
+      "must_start_date": "0", "must_start_time": "0",
+      "must_end_date": "0", "must_end_time": "0",
+      "visiting_hour_start": "06:00:00", "visiting_hour_end": "20:00:00",
+      "earliest_machine_availability_date": "0", "earliest_machine_availability_time": "0",
+      "latest_machine_availability_date": "0", "latest_machine_availability_time": "0",
+      "spare_part_available_date": "0", "spare_part_available_time": "0",
+      "visits_schedule": []}
+  ],
+  "teams": {
+    "team_1": {
+      "workers": [
+        {"e_id": 1, "skills": ["MECANIQUE"],
+          "city": "Dour", "street": "Rue Pairois 101", "postal_code": 7370, "country": "Belgium",
+          "day_starts_at": "06:00:00", "day_ends_at": "17:00:00",
+          "pause_starts_at": "11:00:00", "pause_ends_at": "12:00:00", "blocked_times": [], "shifts": []}],
+      "depot": {"id": 3, "city": "Dour", "street": "Rue Grande 24", "postal_code": 7370, "country": "Belgium"}}
+  },
+  "period_start": "2023-01-03",
+  "optimization_horizon": 2,
+  "depot": {"id": 1, "city": "Dour", "street": "Rue Grande 24", "postal_code": 7370, "country": "Belgium"},
+  "start_at": "depot", "end_at": "depot",
+  "time_unit": "hours",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "optimization_target": "duration",
+  "distance_method": "osm",
+  "allow_slack": 2,
+  "time_limit": 0.5,
+  "distribute_load": false,
+  "minimize_vehicles": false,
+  "account_for_priority": false}

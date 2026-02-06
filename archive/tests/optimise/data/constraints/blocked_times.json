@@ -1,0 +1,240 @@
+{
+  "period_start": "2024-02-19",
+  "optimization_horizon": 2,
+  "start_at": "depot",
+  "end_at": "depot",
+  "time_unit": "hours",
+  "distance_method": "osm",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "optimization_target": "duration",
+  "distribute_load": false,
+  "minimize_vehicles": false,
+  "account_for_priority": true,
+  "time_interval_tolerance": 1,
+  "result_type": "fast",
+  "no_improvement_limit": 1,
+  "time_limit": 0.0055556,
+  "depot": {
+    "id": "depot",
+    "city": "Wavre",
+    "street": "Av. Einstein 6",
+    "postal_code": 1300,
+    "country": "Belgium"
+  },
+  "orders": [
+    {
+      "id": "0000070004090010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Grand-Rue 2",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "RelevÃ© conteur client 2",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-03-12",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2025-06-11",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-02-19",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-02-20",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070004100010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Grand-Rue 3",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "RelevÃ© conteur client 3",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-29",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-07-27",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-02-19",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-02-20",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070004110010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Grand-Rue 4",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "RelevÃ© conteur client 4",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-29",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-07-27",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-02-19",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-02-20",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070004120010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Grand-Rue 5",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "RelevÃ© conteur client 5",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-29",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-07-27",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-02-19",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-02-20",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    }
+  ],
+  "teams": {
+    "251b": {
+      "depot": {
+        "id": "2510251B",
+        "city": "Morges",
+        "street": "Route de Lausane 53",
+        "postal_code": 1110,
+        "country": "Switzerland"
+      },
+      "workers": [
+        {
+          "e_id": "00000004",
+          "skills": [
+            "MECH"
+          ],
+          "city": "Echichens",
+          "street": "Rte du Village 48",
+          "postal_code": 1112,
+          "country": "Switzerland",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "08:00:00",
+          "pause_starts_at": "0",
+          "pause_ends_at": "0",
+          "blocked_times": [
+            {
+              "blocked_date": "2024-02-19",
+              "blocked_start": "08:00:00",
+              "blocked_end": "12:00:00"
+            }
+          ],
+          "shifts": [
+            {
+              "shift_date": "2024-02-19",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-02-20",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

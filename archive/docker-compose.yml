@@ -1,0 +1,36 @@
+version: '3.3'
+volumes:
+  maria_db_data_volume:
+    driver: local
+
+services:
+#  osrm-backend:
+#      image: osrm/osrm-backend
+#      container_name: osrm-backend
+#      ports:
+#        - 5050:5050
+#      volumes:
+#        - ./data:/data
+#      command: ["osrm-extract", "-p", "/opt/car.lua", "/data/switzerland-latest.osm.pbf"]
+  maria_db:
+    image: lscr.io/linuxserver/mariadb
+    container_name: maria_db
+    env_file: envs/env_db.list
+    volumes:
+      - maria_db_data_volume:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+  soa:
+    image: 'mentisdev/soa:v1.3.6'
+    container_name: soa_container
+    ports:
+      - 5051:5051
+    env_file:
+      - envs/env_soa.list
+      - envs/env_db.list
+    volumes:
+      - ./app/cache/:/app/cache
+      - ./app/logs/:/app/logs
+      - ./app/matrix_distance_cache/:/app/matrix_distance_cache
+    restart: unless-stopped

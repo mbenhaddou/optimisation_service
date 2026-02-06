@@ -1,0 +1,133 @@
+Version 1.0.1:
+- Fixed: Block times not taken into account in some situations
+- Fixed: Priority does not seem to apply
+- Added: Daily schedule for employees
+- Added: Daily schedule for clients
+- Added: Error handling
+Version 1.0.2:
+- Added: setting a time limit for the optimization
+Version 1.0.3
+- Fixed: issues with default dates not taken into account
+- Fixed: optimization not always returning a solution when it should
+- Added: Returning errors as field in the json response.
+Version 1.0.4:
+- Added: pause time at daily schedule
+- Fixed: time restriction logic
+- Added: time restriction unit testing
+Version 1.0.5:
+- Fixed: bug with worker pause not detected du to date format
+Version 1.0.6:
+- Fixed: issue with handling optimization output
+- Added: Setting up unit tests
+Version 1.0.7:
+- Fixed: bug where latitude and longitude are not added to the results
+Version 1.0.8:
+- Added: Various small improvements
+Version 1.0.9
+-Fixed: Handling of order with non existing skills
+-Added: managing very low slack time causing no solution found while it should
+Version 1.0.10:
+-Fixed: bug in worker schedule conversion to blocked times
+-Added: Messages for reason for not scheduling
+-Fixed: fixing time_limit=0 to mean unlimited time.
+Version 1.1.0:
+-Added: Refactoring of core
+-Added: default to first solution strategy
+-Added: option to find a more optimized solution:perform_advanced_optimization if it is true, optimization will take more time depending on the size and complexity
+-Added: time_multiplayer, parameter to increase or reduce the optimization time by the corresponding factor, only active if perform_advanced_optimization is true
+Version 1.1.1:
+-Added: rate limit on api calls , this can be setup  defaults.py
+-Added: tests for CH
+Version 1.1.2:
+-Added: check for postal-code evaluation after getting geolocs
+Version 1.1.3:
+-Added: print optimization time on terminal
+-Fixed: typo in json parameter.
+Version 1.1.4:
+-Added: putting back option to distribute the load and to minimize the vehicles. Putting unit test
+-Fixed: changing the default initial solution heuristic to improve first solution
+-Fixed: processing geolocations only in one location in the code
+Version 1.1.5:
+-Fixed: latitude and longitude coordinates inverted in the worker class
+Version 1.1.6:
+-Feat: Make optimize routes requests asynchronous
+Version 1.1.7
+-Feat: Add a config to run the optimization at the second timescale
+-Feat: Add a parameter in json input to set the tolerance time at the intervals 'time_interval_tolerance': default value is 15 min
+-Feat: Add a parameter in json input to set the 'max_working_time' per employee default value is 16 hours per day
+Version 1.1.8
+- Feat: Worker schedule take into account ony the days that are configured, unless they are empty
+- Feat: Address will be ignored if "latitude" and "longitude" are provided in the json input fie.
+- Fixed: ends_at "depot", causing an error.
+- Fixed: units test not running to the new parameters
+Version 1.1.9
+- Fixed: api randomly hanging out
+Version 1.1.1O
+- Fixed: end at home not working.
+- Changed: time tolerance added to the end of the work schedule.
+Version 1.2.0
+- Changed: refactoring to allow for parallel processing
+- Feat: add early stopping criteria
+- Feat: add 'result_type' field in json. It can control the trade-off between speed and quality. It can take 3 values:
+   * "fast" for quick results, using fast and heuristic strategies
+   * "optimized" for better results, using the best heuristic strategies but take more time.
+   * "best" gets even better results by running multiple "optimized" instances and selecting the best ones. The default number of instances per case is 4.
+- Feat: add "no_improvement_limit" parameter to control early stopping. It represents the number of iteration without improvement that are permitted. The default value is 100. increase this value for better results.
+Version 1.2.1
+-Fixed: must_start_date and must_end_date now are working and unittest added.
+-Changed: if 'longitude' and 'latitude' are present in the order data, address fields 'city', 'street', 'postal_code', 'country' are not required.
+-Fixed: updated requirements.txt
+Version 1.2.2
+-Fixed: concurrent computations not waiting for each other.
+-Improved: Parallelize distance and duration matrix to improve speed.
+Version 1.2.3
+-Fixed: raising error when using ProcessPoolExecutor due to not being able to persist python object.
+Version 1.2.4
+- Feat: in the shift the pause can now be optional, to allow for scheduling of workorder that are longer that a break
+- Fixed: geolocation presence in worker was not taken into account.
+- Changed: time_limit is now expressed in the same unit ast time_unit, changed from being expressed by default in minutes.
+- Fixed: correct error messages in output.
+Version 1.2.5
+- Fixed: priority still need to be present event if 'account_for_priority' is false. Now it is not mandatory.
+- Added: Take into account worker blocket times in planning.
+Version 1.2.6
+- Added: added penalty to the const function that increases if  the optimization horizon is short for a work order. If a work order have only the current date to be scheduled it benalty will  be larger than the workorder that have 2 days of horizon
+Version 1.2.7
+- Fixed: bug, the multi-depot regression was introduced with the 1.2.6 addition. now corrected.
+Version 1.2.8
+- Fixed: bug where blocked time was not taking the date into account.
+Version 1.2.9
+- Added: possibility to set randomness of solution through 'randomize_response' parameter in the request, the default value is: False
+- Added: language parameter to requests, the default value is: 'en'. It will be used to translate the error messages.
+Version 1.2.10
+- Changed: changed default geocoding api service from "nominatim" to "google"
+- Added: parameter to set geocoding service "geocoding_service" that can take the following values:"nominatim", "mapbox", "opencage", "google"
+- Changed: default value for "fast" mode from 'AUTOMATIC' to 'PATH_CHEAPEST_ARC'
+- Added: a soft constraint to penalise solution where individual worker's paths are dispersed.
+- Added: a parameter "use_neighborhood_clustering" with default value 'true' that control if the former soft constraint is applied
+Version 1.2.11
+-Changed: Update matrix computation to use also online services.
+Version 1.3.0
+-Changed: refactored  matrix calculation method, we can now load multiple services at once. there is a priority order in these services and in case one service failed another one will be used?
+-Changed: the base server of routing was changed from Valhalla to OSRM
+Version 1.3.1
+-Changed: Changed dispersion detection algorithm to depend on "as-the-crow-flies" (vol d'oiseau) between 2 addresses, which gives better aggregability to the algorithm.
+Version 1.3.2
+-Changed: renamed parameter 'use_neighborhood_clustering' to 'enable_neighborhood_clustering' in request file
+-Added: new parameter, "neighborhood_clustering_distance" to switch between "haversine" distance compute as the 'vol d'oiseau' or "as-the-crow-flies" distance and the regular route distance coresponding to the distance travelled by car
+-Added: new parameter, "neighborhood_clustering_penalty_factor" a factor that that act as weight that act as a penalty weight
+-Added: new parameter, "enable_neighborhood_clustering" to enable the clustering features of nearby addresses
+-Fixed: bug where default geolocation service is not correctly applied
+Version 1.3.3
+-Added: Flag to enable distance matrix cache usage, ENABLE_DISTANCE_MATRIX_CACHE, default is False
+-Added: Flag to disable geocoding cache usage, ENABLE_GEOCODING_CACHE, default is True
+Version 1.3.4
+-Fixed: Regression of the Clustering feature stopped working. and fixed by getting back to a working version.
+-Added: compute aggregate performance per run.
+-Added: performance measure to the output.
+Version 1.3.5
+-Fixed: increased the cost of dropping a must_visit node
+-Added: walking distance parameters that allow to replace driving with walking in short distances. There a config to enable this: "use_walking_distances_when_possible" (True/False) default value is True. and "walking_distances_threshold" that set the maximum waking distance between 2 nodes. The default value is 200m
+-Added: retries mechanism that run 5 times if there is an exception.
+Version 1.3.6
+-Fixed: must tart constraint was not working or not respecting the default tolerance time (15 min)

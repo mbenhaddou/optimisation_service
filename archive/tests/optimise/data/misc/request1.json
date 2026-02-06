@@ -1,0 +1,107 @@
+{
+  "period_start": "2023-09-11",
+  "optimization_horizon": 2,
+  "start_at": "depot",
+  "end_at": "depot",
+  "time_unit": "hours",
+  "distance_method": "osm",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "optimization_target": "duration",
+  "allow_slack": 120,
+  "distribute_load": true,
+  "minimize_vehicles": false,
+  "account_for_priority": true,
+  "time_limit": 0.008,
+  "depot": {
+    "id": "depot",
+    "city": "Wavre",
+    "street": "Av. Einstein 6",
+    "postal_code": 1300,
+    "country": "Belgium"
+  },
+  "orders": [
+    {
+      "id": "0000070000010010",
+      "priority": 2,
+      "skill": "MECH",
+      "city": "Waterloo",
+      "street": "ChaussÃ©e de Bruxelles 400",
+      "postal_code": 1410,
+      "country": "Belgium",
+      "description": "VÃ©rifier l'installation",
+      "work_hours": 3.0,
+      "earliest_machine_availability_date": "2023-08-26",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2023-10-06",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2023-09-11",
+          "visit_start": "06:00:00",
+          "visit_end": "22:00:00"
+        },
+        {
+          "visit_date": "2023-09-12",
+          "visit_start": "06:00:00",
+          "visit_end": "22:00:00"
+        }
+      ],
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00"
+    }
+  ],
+  "teams": {
+    "251a": {
+      "depot": {
+        "id": "2510251A",
+        "city": "Wavre",
+        "street": "Av. Einstein 6",
+        "postal_code": 1300,
+        "country": "Belgium"
+      },
+      "workers": [
+        {
+          "e_id": "00000003",
+          "skills": [
+            "MECH"
+          ],
+          "city": "Uccle",
+          "street": "Rue de Stalle 333",
+          "postal_code": 1180,
+          "country": "Belgium",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "16:00:00",
+          "pause_starts_at": "0",
+          "pause_ends_at": "0",
+          "blocked_times": [],
+          "shifts": [
+            {
+              "shift_date": "2023-09-11",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2023-09-12",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

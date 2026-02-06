@@ -1,0 +1,577 @@
+{
+  "period_start": "2024-01-22",
+  "optimization_horizon": 5,
+  "start_at": "home",
+  "end_at": "home",
+  "time_unit": "hours",
+  "distance_method": "osm",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "optimization_target": "duration",
+  "distribute_load": false,
+  "minimize_vehicles": false,
+  "account_for_priority": true,
+  "time_interval_tolerance": 0.05,
+  "result_type": "fast",
+  "no_improvement_limit": 1,
+  "time_limit": 0.0023,
+  "depot": {
+    "id": "depot",
+    "city": "Wavre",
+    "street": "Av. Einstein 6",
+    "postal_code": 1300,
+    "country": "Belgium"
+  },
+  "orders": [
+    {
+      "id": "0000070004150010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Grand-Rue 8",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 8",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-04",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-07-02",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070004160010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Grand-Rue 9",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 9",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-04",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-07-02",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070004170010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Grand-Rue 10",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 10",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-04",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-07-02",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070004180010",
+      "priority": 1,
+      "skill": "MECH",
+      "city": "Morges",
+      "street": "Grand-Rue 11",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 11",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-04",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-07-02",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000070004100010",
+      "priority": 1,
+      "skill": "ELEC",
+      "city": "Morges",
+      "street": "Grand-Rue 3",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 3",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-04",
+      "earliest_machine_availability_time": "01:00:00",
+      "latest_machine_availability_date": "2024-07-02",
+      "latest_machine_availability_time": "01:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "2024-01-22",
+      "must_start_time": "08:04:00",
+      "must_end_date": "2024-01-22",
+      "must_end_time": "08:52:00",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00"
+    },
+    {
+      "id": "0000070004120010",
+      "priority": 1,
+      "skill": "ELEC",
+      "city": "Morges",
+      "street": "Grand-Rue 5",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 5",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-04",
+      "earliest_machine_availability_time": "10:00:00",
+      "latest_machine_availability_date": "2024-07-02",
+      "latest_machine_availability_time": "23:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "2024-01-22",
+      "must_start_time": "08:52:00",
+      "must_end_date": "2024-01-22",
+      "must_end_time": "09:40:00",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00"
+    },
+    {
+      "id": "0000070004090010",
+      "priority": 1,
+      "skill": "ELEC",
+      "city": "Morges",
+      "street": "Grand-Rue 2",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 2",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-02-15",
+      "earliest_machine_availability_time": "09:31:47",
+      "latest_machine_availability_date": "2025-05-17",
+      "latest_machine_availability_time": "09:31:47",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "2024-01-22",
+      "must_start_time": "09:40:00",
+      "must_end_date": "2024-01-22",
+      "must_end_time": "10:28:00",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00"
+    },
+    {
+      "id": "0000070004110010",
+      "priority": 1,
+      "skill": "ELEC",
+      "city": "Morges",
+      "street": "Grand-Rue 4",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 4",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-04",
+      "earliest_machine_availability_time": "10:00:00",
+      "latest_machine_availability_date": "2024-07-02",
+      "latest_machine_availability_time": "23:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "2024-01-22",
+      "must_start_time": "10:28:00",
+      "must_end_date": "2024-01-22",
+      "must_end_time": "11:16:00",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00"
+    },
+    {
+      "id": "0000070004130010",
+      "priority": 1,
+      "skill": "ELEC",
+      "city": "Morges",
+      "street": "Grand-Rue 6",
+      "postal_code": 1110,
+      "country": "Switzerland",
+      "description": "RelevÃ© conteur client 6",
+      "work_hours": 0.8,
+      "earliest_machine_availability_date": "2023-07-04",
+      "earliest_machine_availability_time": "10:00:00",
+      "latest_machine_availability_date": "2024-07-02",
+      "latest_machine_availability_time": "23:00:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "2024-01-22",
+      "must_start_time": "11:16:00",
+      "must_end_date": "2024-01-22",
+      "must_end_time": "12:04:00",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-01-22",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-23",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-24",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-25",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-01-26",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00"
+    }
+  ],
+  "teams": {
+    "2510": {
+      "depot": {
+        "id": "2510",
+        "city": "Mons",
+        "street": "Rue de Nimy 14",
+        "postal_code": 7000,
+        "country": "Belgium"
+      },
+      "workers": [
+        {
+          "e_id": "00000002",
+          "skills": [
+            "MECH"
+          ],
+          "city": "Morges",
+          "street": "Chem. de Bel-Horizon 2",
+          "postal_code": 1110,
+          "country": "Switzerland",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "08:00:00",
+          "pause_starts_at": "0",
+          "pause_ends_at": "0",
+          "blocked_times": [],
+          "shifts": [
+            {
+              "shift_date": "2024-01-22",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-01-23",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-01-24",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-01-25",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-01-26",
+              "shift_start": "08:00:00",
+              "shift_end": "17:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "period_start": "2024-05-27",
+  "optimization_horizon": 5,
+  "start_at": "depot",
+  "end_at": "depot",
+  "time_unit": "hours",
+  "distance_method": "osm",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "optimization_target": "duration",
+  "distribute_load": false,
+  "minimize_vehicles": false,
+  "account_for_priority": false,
+  "time_interval_tolerance": 0.2500000,
+  "result_type": "fast",
+  "no_improvement_limit": 10,
+  "time_limit": 0.0066667,
+  "depot": {
+    "id": "depot",
+    "city": "Wavre",
+    "street": "Av. Einstein 6",
+    "postal_code": 1300,
+    "country": "Belgium"
+  },
+  "orders": [
+
+    {
+      "id": "0000119342710010",
+      "priority": 3,
+      "skill": "",
+      "city": "Penthaz",
+      "street": "Rte de Cossonay 6",
+      "postal_code": 1303,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil-",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2024-04-30",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-05-31",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-05-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-30",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-31",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119342720010",
+      "priority": 3,
+      "skill": "",
+      "city": "Penthaz",
+      "street": "Rte de Cossonay 1",
+      "postal_code": 1303,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil-",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2024-04-30",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-05-31",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-05-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-30",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-31",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119342820010",
+      "priority": 3,
+      "skill": "",
+      "city": "Penthaz",
+      "street": "Route de Lausanne 2",
+      "postal_code": 1303,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil-",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2024-04-30",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-05-31",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-05-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-30",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-31",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119342850010",
+      "priority": 3,
+      "skill": "",
+      "city": "Penthaz",
+      "street": "Route de Lausanne 4",
+      "postal_code": 1303,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil-",
+      "work_hours": 0.5,
+      "earliest_machine_availability_date": "2024-04-30",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-05-31",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-05-27",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-28",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-29",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-30",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-05-31",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    }
+  ],
+  "language": "fr",
+  "geocoding_service": "google",
+  "use_neighborhood_clustering": true,
+  "teams": {
+    "rollnord": {
+      "depot": {
+        "id": "ROLLNORD",
+        "city": "Yverdon-les-Bains",
+        "street": "Rue de Montagny 18A",
+        "postal_code": 1400,
+        "country": "Suisse"
+      },
+      "workers": [
+        {
+          "e_id": "00050210",
+          "skills": [
+            ""
+          ],
+          "city": "Morges",
+          "street": "Rue de Lausanne 53 ",
+          "postal_code": 1110,
+          "country": "Switzerland",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "08:00:00",
+          "pause_starts_at": "0",
+          "pause_ends_at": "0",
+          "blocked_times": [],
+          "shifts": [
+            {
+              "shift_date": "2024-05-27",
+              "shift_start": "08:30:00",
+              "shift_end": "16:30:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-05-28",
+              "shift_start": "07:45:00",
+              "shift_end": "16:30:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-05-29",
+              "shift_start": "07:45:00",
+              "shift_end": "16:30:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-05-30",
+              "shift_start": "07:45:00",
+              "shift_end": "16:30:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-05-31",
+              "shift_start": "07:45:00",
+              "shift_end": "16:30:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

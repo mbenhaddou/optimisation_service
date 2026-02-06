@@ -1,0 +1,1644 @@
+{
+  "period_start": "2024-06-03",
+  "optimization_horizon": 3,
+  "start_at": "depot",
+  "end_at": "depot",
+  "time_unit": "hours",
+  "distance_method": "osm",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "optimization_target": "duration",
+  "distribute_load": false,
+  "minimize_vehicles": false,
+  "account_for_priority": false,
+  "time_interval_tolerance": 0.2500000,
+  "result_type": "fast",
+  "no_improvement_limit": 10,
+  "time_limit": 0.0111111,
+  "depot": {
+    "id": "depot",
+    "city": "Wavre",
+    "street": "Av. Einstein 6",
+    "postal_code": 1300,
+    "country": "Belgium"
+  },
+  "orders": [
+    {
+      "id": "0000119356840010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 2",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119356850010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 2",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119356860010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 2",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357090010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357100010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357110010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357120010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357130010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357600010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357610010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357620010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 9",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357630010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 9",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357640010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357650010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357660010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357670010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357680010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357690010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357700010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 1",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357870010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357880010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357890010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357900010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357910010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357920010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357930010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357940010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357950010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357960010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357970010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119357990010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 7",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119358000010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue de la Gare 9",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.43333,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "00:00:00",
+      "visiting_hour_end": "23:59:59"
+    },
+    {
+      "id": "0000119356450010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue du Motty ",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.60000,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "2024-06-03",
+      "must_start_time": "14:00:00",
+      "must_end_date": "2024-06-03",
+      "must_end_time": "14:36:00",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00"
+    },
+    {
+      "id": "0000119357730010",
+      "priority": 3,
+      "skill": "",
+      "city": "St-Prex",
+      "street": "Rue du Motty ",
+      "postal_code": 1162,
+      "country": "Switzerland",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "Remplacement d'appareil",
+      "work_hours": 0.60000,
+      "earliest_machine_availability_date": "2024-05-10",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-06-07",
+      "latest_machine_availability_time": "23:59:00",
+      "spare_part_available_date": "0",
+      "spare_part_available_time": "00:00:00",
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "2024-06-03",
+      "must_start_time": "09:30:00",
+      "must_end_date": "2024-06-03",
+      "must_end_time": "10:06:00",
+      "visits_schedule": [
+        {
+          "visit_date": "2024-06-03",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-04",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        },
+        {
+          "visit_date": "2024-06-05",
+          "visit_start": "00:00:00",
+          "visit_end": "23:59:59"
+        }
+      ],
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00"
+    }
+  ],
+  "language": "fr",
+  "geocoding_service": "google",
+  "use_neighborhood_clustering": true,
+  "teams": {
+    "rollwest": {
+      "depot": {
+        "id": "ROLLWEST",
+        "city": "Rolle",
+        "street": "ZA La PiÃ¨ce 9",
+        "postal_code": 1180,
+        "country": "Suisse"
+      },
+      "workers": [
+        {
+          "e_id": "00050207",
+          "skills": [
+            ""
+          ],
+          "city": "Morges",
+          "street": "Rue de Lausanne 53 ",
+          "postal_code": 1110,
+          "country": "Switzerland",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "08:00:00",
+          "pause_starts_at": "0",
+          "pause_ends_at": "0",
+          "blocked_times": [],
+          "shifts": [
+            {
+              "shift_date": "2024-06-03",
+              "shift_start": "08:30:00",
+              "shift_end": "16:30:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-06-04",
+              "shift_start": "07:45:00",
+              "shift_end": "16:30:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-06-05",
+              "shift_start": "07:45:00",
+              "shift_end": "16:30:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

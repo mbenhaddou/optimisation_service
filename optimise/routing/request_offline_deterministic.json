@@ -1,0 +1,102 @@
+{
+  "language": "en",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "time_unit": "minutes",
+  "optimization_target": "duration",
+  "optimization_horizon": 1,
+  "period_start": "2024-01-01 08:00:00",
+  "enable_geocoding": false,
+  "distance_matrix_method": "haversine",
+  "driving_speed_kmh": 40,
+  "deterministic": true,
+  "random_seed": 42,
+  "account_for_priority": false,
+  "orders": [
+    {
+      "id": "WO-1",
+      "skill": "electric",
+      "priority": 3,
+      "latitude": 50.8503,
+      "longitude": 4.3517,
+      "visits_schedule": [],
+      "visiting_hour_start": "08:00:00",
+      "visiting_hour_end": "17:00:00",
+      "work_hours": 60,
+      "street": "Rue de la Loi 16",
+      "postal_code": "1000",
+      "city": "Brussels",
+      "country": "BE",
+      "earliest_start_date": "2024-01-01",
+      "earliest_start_time": "08:00:00",
+      "latest_end_date": "2024-01-01",
+      "latest_end_time": "17:00:00",
+      "earliest_machine_availability_date": "2024-01-01",
+      "earliest_machine_availability_time": "08:00:00",
+      "latest_machine_availability_date": "2024-01-01",
+      "latest_machine_availability_time": "17:00:00",
+      "spare_part_available_date": "2024-01-01",
+      "spare_part_available_time": "08:00:00",
+      "must_start_date": "",
+      "must_start_time": "",
+      "must_end_date": "",
+      "must_end_time": ""
+    },
+    {
+      "id": "WO-2",
+      "skill": "electric",
+      "priority": 2,
+      "latitude": 50.8466,
+      "longitude": 4.3528,
+      "visits_schedule": [],
+      "visiting_hour_start": "08:00:00",
+      "visiting_hour_end": "17:00:00",
+      "work_hours": 45,
+      "street": "Boulevard Anspach 1",
+      "postal_code": "1000",
+      "city": "Brussels",
+      "country": "BE"
+    }
+  ],
+  "teams": {
+    "TeamA": {
+      "depot": {
+        "id": "DEPOT-1",
+        "street": "Rue Ravenstein 2",
+        "postal_code": "1000",
+        "city": "Brussels",
+        "country": "BE",
+        "latitude": 50.8470,
+        "longitude": 4.3550
+      },
+      "workers": [
+        {
+          "e_id": "W-1",
+          "skills": [
+            "electric"
+          ],
+          "street": "Rue Royale 10",
+          "postal_code": "1000",
+          "city": "Brussels",
+          "country": "BE",
+          "latitude": 50.8476,
+          "longitude": 4.3561,
+          "blocked_times": [],
+          "shifts": [],
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "17:00:00",
+          "pause_starts_at": "12:00:00",
+          "pause_ends_at": "12:30:00"
+        }
+      ]
+    }
+  },
+  "depot": {
+    "id": "DEPOT-1",
+    "street": "Rue Ravenstein 2",
+    "postal_code": "1000",
+    "city": "Brussels",
+    "country": "BE",
+    "latitude": 50.8470,
+    "longitude": 4.3550
+  }
+}

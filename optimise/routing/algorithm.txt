@@ -1,0 +1,24 @@
+we have tasks work orders spaning multiple days:
+case 1: we have too many clients to serve.
+Case 2 clients start date requirement does not allow to solve in one day.
+general case, case 1 and 2 are present in the same time.
+
+
+Algorithm
+
+Optimisation horizon: 5 days
+
+horizon=5
+start_date = Date_0
+date_i=0
+workorders=[initial_workorders]
+solution={}
+while date_i<horizon or workorders !=[:
+    work_orders=get_all_workorders(work_orders, start_date<=date_i) #add new work orders that should start  this day
+    model_params=compute_time_distance(stat=date, locations, work_orers)
+    solution=routing.solve(model_params)
+    work_orders=solution.droped()
+    solution[date_i]=solution
+    date_i+=1
+
+return solution

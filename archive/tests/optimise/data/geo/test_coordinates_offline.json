@@ -1,0 +1,183 @@
+{
+  "random_seed": 42, 
+  "date_format": "%Y-%m-%d %H:%M:%S", 
+  "deterministic": true, 
+  "start_at": "depot", 
+  "distance_matrix_method": "haversine", 
+  "time_limit": 0.25, 
+  "distance_method": "osm", 
+  "distribute_load": false, 
+  "account_for_priority": true, 
+  "teams": {
+    "10000013": {
+      "workers": [
+        {
+          "city": "Ninove", 
+          "day_starts_at": "08:00:00", 
+          "pause_ends_at": "16:00:00", 
+          "pause_starts_at": "16:00:00", 
+          "skills": [
+            "MECH"
+          ], 
+          "country": "Belgium", 
+          "e_id": "00000004", 
+          "longitude": 4.484855, 
+          "shifts": [
+            {
+              "shift_start": "08:00:00", 
+              "shift_end": "16:00:00", 
+              "pause_start": "12:00:00", 
+              "shift_date": "2024-01-16", 
+              "pause_end": "13:00:00"
+            }, 
+            {
+              "shift_start": "08:00:00", 
+              "shift_end": "16:00:00", 
+              "pause_start": "12:00:00", 
+              "shift_date": "2024-01-17", 
+              "pause_end": "13:00:00"
+            }, 
+            {
+              "shift_start": "08:00:00", 
+              "shift_end": "16:00:00", 
+              "pause_start": "12:00:00", 
+              "shift_date": "2024-01-18", 
+              "pause_end": "13:00:00"
+            }, 
+            {
+              "shift_start": "08:00:00", 
+              "shift_end": "16:00:00", 
+              "pause_start": "12:00:00", 
+              "shift_date": "2024-01-19", 
+              "pause_end": "13:00:00"
+            }
+          ], 
+          "street": "Centrumlaan 85", 
+          "postal_code": 9400, 
+          "latitude": 50.6863975, 
+          "day_ends_at": "16:00:00", 
+          "blocked_times": []
+        }
+      ], 
+      "depot": {
+        "city": "Li\u00e8ge", 
+        "country": "Belgium", 
+        "longitude": 5.57, 
+        "street": "Rue Louvrex 95", 
+        "postal_code": 4000, 
+        "latitude": 50.641, 
+        "id": "MECH"
+      }
+    }
+  }, 
+  "optimization_target": "duration", 
+  "end_at": "home", 
+  "time_unit": "hours", 
+  "orders": [
+    {
+      "visiting_hour_end": "22:00:00", 
+      "must_end_time": "0", 
+      "earliest_start_time": "0", 
+      "must_start_date": "0", 
+      "earliest_machine_availability_time": "00:00:00", 
+      "street": "Rue des Champs 9", 
+      "postal_code": 4020, 
+      "spare_part_available_time": "08:00:00", 
+      "skill": "MECH", 
+      "visits_schedule": [], 
+      "id": "70005350010", 
+      "latest_end_date": "0", 
+      "city": "Li\u00e8ge", 
+      "spare_part_available_date": "0", 
+      "priority": 1, 
+      "latest_machine_availability_time": "00:00:00", 
+      "latitude": 50.64, 
+      "must_end_date": "0", 
+      "earliest_start_date": "0", 
+      "earliest_machine_availability_date": "2023-10-03", 
+      "description": "Relev\u00e9 conteur client 01", 
+      "work_hours": 0.5, 
+      "visiting_hour_start": "06:00:00", 
+      "latest_end_time": "0", 
+      "country": "Belgium", 
+      "longitude": 5.571, 
+      "latest_machine_availability_date": "2025-01-03", 
+      "must_start_time": "0"
+    }, 
+    {
+      "visiting_hour_end": "22:00:00", 
+      "must_end_time": "0", 
+      "earliest_start_time": "0", 
+      "must_start_date": "0", 
+      "earliest_machine_availability_time": "00:00:00", 
+      "street": "Rue des Champs 10", 
+      "postal_code": 4020, 
+      "spare_part_available_time": "08:00:00", 
+      "skill": "MECH", 
+      "visits_schedule": [], 
+      "id": "70005360010", 
+      "latest_end_date": "0", 
+      "city": "Li\u00e8ge", 
+      "spare_part_available_date": "0", 
+      "priority": 1, 
+      "latest_machine_availability_time": "00:00:00", 
+      "latitude": 50.6415, 
+      "must_end_date": "0", 
+      "earliest_start_date": "0", 
+      "earliest_machine_availability_date": "2023-10-03", 
+      "description": "Relev\u00e9 conteur client 02", 
+      "work_hours": 0.5, 
+      "visiting_hour_start": "06:00:00", 
+      "latest_end_time": "0", 
+      "country": "Belgium", 
+      "longitude": 5.5725, 
+      "latest_machine_availability_date": "2025-01-03", 
+      "must_start_time": "0"
+    }, 
+    {
+      "visiting_hour_end": "22:00:00", 
+      "must_end_time": "0", 
+      "earliest_start_time": "0", 
+      "must_start_date": "0", 
+      "earliest_machine_availability_time": "00:00:00", 
+      "street": "Rue des Champs 11", 
+      "postal_code": 4020, 
+      "spare_part_available_time": "08:00:00", 
+      "skill": "MECH", 
+      "visits_schedule": [], 
+      "id": "70005370010", 
+      "latest_end_date": "0", 
+      "city": "Li\u00e8ge", 
+      "spare_part_available_date": "0", 
+      "priority": 1, 
+      "latest_machine_availability_time": "00:00:00", 
+      "latitude": 50.643, 
+      "must_end_date": "0", 
+      "earliest_start_date": "0", 
+      "earliest_machine_availability_date": "2023-10-03", 
+      "description": "Relev\u00e9 conteur client 03", 
+      "work_hours": 0.5, 
+      "visiting_hour_start": "06:00:00", 
+      "latest_end_time": "0", 
+      "country": "Belgium", 
+      "longitude": 5.574, 
+      "latest_machine_availability_date": "2025-01-03", 
+      "must_start_time": "0"
+    }
+  ], 
+  "optimization_horizon": 3, 
+  "time_interval_tolerance": 0.008, 
+  "enable_geocoding": false, 
+  "period_start": "2024-01-16", 
+  "depot": {
+    "city": "Wavre", 
+    "country": "Belgium", 
+    "longitude": 5.57, 
+    "street": "Av. Einstein 6", 
+    "postal_code": 1300, 
+    "latitude": 50.641, 
+    "id": "depot"
+  }, 
+  "result_type": "fast", 
+  "minimize_vehicles": false
+}

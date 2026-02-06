@@ -1,0 +1,97 @@
+{
+  "period_start": "2024-01-18",
+  "optimization_horizon": 3,
+  "start_at": "depot",
+  "end_at": "depot",
+  "time_unit": "hours",
+  "distance_method": "osm",
+  "date_format": "%Y-%m-%d %H:%M:%S",
+  "optimization_target": "duration",
+  "allow_slack": 2,
+  "distribute_load": false,
+  "minimize_vehicles": false,
+  "account_for_priority": true,
+  "perform_advanced_optimization": false,
+  "time_multiplier": 1,
+  "depot": {
+    "id": "depot",
+    "city": "Wavre",
+    "street": "Av. Einstein 6",
+    "postal_code": 1300,
+    "country": "Belgium"
+  },
+  "orders": [
+    {
+      "id": "70004040010",
+      "priority": 4,
+      "skill": "MECH",
+      "city": "Lasne",
+      "street": "Route d'Ohain 9",
+      "postal_code": 1380,
+      "country": "Belgium",
+      "description": "Weekly maintenance",
+      "work_hours": 4,
+      "earliest_machine_availability_date": "2024-01-01",
+      "earliest_machine_availability_time": "00:00:00",
+      "latest_machine_availability_date": "2024-01-31",
+      "latest_machine_availability_time": "00:00:00",
+      "spare_part_available_date": "2024-01-16",
+      "spare_part_available_time": "08:00:00",
+      "visiting_hour_start": "06:00:00",
+      "visiting_hour_end": "22:00:00",
+      "visits_schedule": [],
+      "earliest_start_date": "0",
+      "earliest_start_time": "0",
+      "latest_end_date": "0",
+      "latest_end_time": "0",
+      "must_start_date": "0",
+      "must_start_time": "0",
+      "must_end_date": "0",
+      "must_end_time": "0"
+    }
+  ],
+  "teams": {
+    "10000013": {
+      "depot": {
+        "id": "MECH",
+        "city": "Liège",
+        "street": "Rue Louvrex 95",
+        "postal_code": 4000,
+        "country": "Belgium"
+      },
+      "workers": [
+        {
+          "e_id": "00000002",
+          "skills": [
+            "MECH"
+          ],
+          "city": "Haut-Ittre",
+          "street": "Chaussée de Nivelles 14C",
+          "postal_code": 1461,
+          "country": "Belgium",
+          "day_starts_at": "08:00:00",
+          "day_ends_at": "16:00:00",
+          "pause_starts_at": "16:00:00",
+          "pause_ends_at": "16:00:00",
+          "shifts": [
+            {
+              "shift_date": "2024-01-18",
+              "shift_start": "08:00:00",
+              "shift_end": "16:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            },
+            {
+              "shift_date": "2024-01-19",
+              "shift_start": "08:00:00",
+              "shift_end": "16:00:00",
+              "pause_start": "12:00:00",
+              "pause_end": "13:00:00"
+            }
+          ],
+          "blocked_times": []
+        }
+      ]
+    }
+  }
+}
