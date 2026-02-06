@@ -1,0 +1,36 @@
+name: Docker Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build API image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: services/api_service/Dockerfile
+          push: false
+          tags: optimisation-api:ci
+      - name: Build Worker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: services/worker_service/Dockerfile
+          push: false
+          tags: optimisation-worker:ci
+      - name: Build Web image
+        uses: docker/build-push-action@v5
+        with:
+          context: services/web_portal
+          file: services/web_portal/Dockerfile
+          push: false
+          tags: optimisation-web:ci

@@ -192,6 +192,19 @@ Configure `STRIPE_WEBHOOK_SECRET` and point your Stripe webhook at:
 http://localhost:8000/v1/billing/webhook
 ```
 
+## Phase 5 Production Readiness
+
+### Production Compose
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
+```
+
+### Release Tags
+```bash
+git tag -a v0.5.0 -m "Phase 5 release"
+git push origin v0.5.0
+```
+
 ## Requirements
 - Python 3.9
 - JSON for data input
