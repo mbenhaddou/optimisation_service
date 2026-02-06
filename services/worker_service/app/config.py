@@ -23,6 +23,8 @@ class Settings:
     celery_result_backend: str = os.getenv("CELERY_RESULT_BACKEND", "")
     job_timeout_seconds: int = int(os.getenv("JOB_TIMEOUT_SECONDS", "300"))
     enable_usage_update: bool = _get_bool("ENABLE_USAGE_UPDATE", True)
+    log_level: str = os.getenv("LOG_LEVEL", "INFO")
+    log_format: str = os.getenv("LOG_FORMAT", "json")
 
     def resolved_celery_broker(self) -> str:
         return self.celery_broker_url or self.redis_url

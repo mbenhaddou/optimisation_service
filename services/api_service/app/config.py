@@ -37,6 +37,8 @@ class Settings:
     stripe_webhook_secret: str = os.getenv("STRIPE_WEBHOOK_SECRET", "")
     stripe_price_id: str = os.getenv("STRIPE_PRICE_ID", "")
     frontend_base_url: str = os.getenv("FRONTEND_BASE_URL", "http://localhost:3000")
+    log_level: str = os.getenv("LOG_LEVEL", "INFO")
+    log_format: str = os.getenv("LOG_FORMAT", "json")
     allow_anonymous: bool = _get_bool("ALLOW_ANON", True)
     auto_create_db: bool = _get_bool("AUTO_CREATE_DB", True)
     sync_execution: bool = _get_bool("SYNC_EXECUTION", False)

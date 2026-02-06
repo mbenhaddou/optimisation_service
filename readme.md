@@ -58,6 +58,13 @@ docker compose up --build
 ```
 API will be available at `http://localhost:8000`.
 
+### Observability & Health
+```bash
+curl http://localhost:8000/health
+curl http://localhost:8000/ready
+curl http://localhost:8000/metrics
+```
+
 ### Submit a Solve Job
 ```bash
 curl -X POST http://localhost:8000/v1/solve \\

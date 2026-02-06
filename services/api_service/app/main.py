@@ -4,10 +4,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from .config import settings
 from .db import Base, engine
 from .models import ApiKey, Job
+from .observability import RequestIdMiddleware
 from .routes.admin import router as admin_router
 from .routes.auth import router as auth_router
 from .routes.health import router as health_router
 from .routes.jobs import router as jobs_router
+from .routes.metrics import router as metrics_router
 from .routes.portal import router as portal_router
 from .routes.billing import router as billing_router
 
@@ -28,8 +30,10 @@ def create_app() -> FastAPI:
             allow_methods=[m.strip() for m in settings.cors_allow_methods.split(",") if m.strip()],
             allow_headers=[h.strip() for h in settings.cors_allow_headers.split(",") if h.strip()],
         )
+    app.add_middleware(RequestIdMiddleware)
 
     app.include_router(health_router)
+    app.include_router(metrics_router)
     app.include_router(jobs_router)
     app.include_router(admin_router)
     app.include_router(auth_router)
