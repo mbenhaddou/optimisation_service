@@ -12,7 +12,8 @@ from optimise.utils.dates import convert_units
 
 
 def _load_offline_request():
-    path = Path("optimise/routing/request_offline_deterministic.json")
+    repo_root = Path(__file__).resolve().parents[1]
+    path = repo_root / "optimise" / "routing" / "request_offline_deterministic.json"
     return json.loads(path.read_text())
 
 

@@ -22,7 +22,8 @@ from optimise.utils.dates import convert_units
 
 
 def _load_payload():
-    path = Path("optimise/routing/request_offline_deterministic.json")
+    repo_root = Path(__file__).resolve().parents[1]
+    path = repo_root / "optimise" / "routing" / "request_offline_deterministic.json"
     payload = json.loads(path.read_text())
     # Adjust to avoid short horizon when time_unit is minutes.
     if payload.get("time_unit") == "minutes":
