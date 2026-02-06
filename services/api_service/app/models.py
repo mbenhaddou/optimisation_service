@@ -14,6 +14,28 @@ class ApiKey(Base):
     name = Column(String, nullable=True)
     active = Column(Boolean, default=True, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+    org_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
+    created_by_user_id = Column(String, ForeignKey("users.id"), nullable=True)
+
+
+class Organization(Base):
+    __tablename__ = "organizations"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    name = Column(String, nullable=False, unique=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    email = Column(String, nullable=False, unique=True, index=True)
+    hashed_password = Column(String, nullable=False)
+    is_active = Column(Boolean, default=True, nullable=False)
+    role = Column(String, default="owner", nullable=False)
+    org_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 
 class Job(Base):

@@ -120,6 +120,36 @@ Set `.env.local` with:
 NEXT_PUBLIC_API_BASE=http://localhost:8000
 ```
 
+## Phase 3 Auth & User Profiles
+
+### Register
+```bash
+curl -X POST http://localhost:8000/v1/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{ "email": "owner@example.com", "password": "changeme", "organization": "Acme Ops" }'
+```
+
+### Login
+```bash
+curl -X POST http://localhost:8000/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{ "email": "owner@example.com", "password": "changeme" }'
+```
+
+### Profile
+```bash
+curl http://localhost:8000/v1/portal/me \
+  -H "Authorization: Bearer <token>"
+```
+
+### Org API Keys
+```bash
+curl -X POST http://localhost:8000/v1/portal/api-keys \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{ "name": "default" }'
+```
+
 ## Requirements
 - Python 3.9
 - JSON for data input
