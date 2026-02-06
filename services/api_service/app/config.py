@@ -27,6 +27,15 @@ class Settings:
     jwt_secret: str = os.getenv("JWT_SECRET", "dev-secret-change-me")
     jwt_algorithm: str = os.getenv("JWT_ALGORITHM", "HS256")
     access_token_expire_minutes: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60"))
+    cors_allow_origins: str = os.getenv("CORS_ALLOW_ORIGINS", "http://localhost:3000")
+    cors_allow_credentials: bool = _get_bool("CORS_ALLOW_CREDENTIALS", False)
+    cors_allow_methods: str = os.getenv("CORS_ALLOW_METHODS", "GET,POST,PUT,DELETE,OPTIONS")
+    cors_allow_headers: str = os.getenv(
+        "CORS_ALLOW_HEADERS", "Authorization,Content-Type,X-API-Key,X-Admin-Key"
+    )
+    stripe_secret_key: str = os.getenv("STRIPE_SECRET_KEY", "")
+    stripe_webhook_secret: str = os.getenv("STRIPE_WEBHOOK_SECRET", "")
+    stripe_price_id: str = os.getenv("STRIPE_PRICE_ID", "")
     allow_anonymous: bool = _get_bool("ALLOW_ANON", True)
     auto_create_db: bool = _get_bool("AUTO_CREATE_DB", True)
     sync_execution: bool = _get_bool("SYNC_EXECUTION", False)

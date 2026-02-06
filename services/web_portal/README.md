@@ -16,3 +16,4 @@ NEXT_PUBLIC_API_BASE=http://localhost:8000
 - `/` Landing page
 - `/docs` API documentation links
 - `/portal` Developer portal stub
+- `/portal/test` API testing console

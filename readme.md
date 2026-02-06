@@ -120,6 +120,15 @@ Set `.env.local` with:
 NEXT_PUBLIC_API_BASE=http://localhost:8000
 ```
 
+### API Test Console
+Run the portal and open:
+- `/portal/test`
+
+Make sure CORS allows `http://localhost:3000`:
+```
+CORS_ALLOW_ORIGINS=http://localhost:3000
+```
+
 ## Phase 3 Auth & User Profiles
 
 ### Register
@@ -148,6 +157,20 @@ curl -X POST http://localhost:8000/v1/portal/api-keys \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{ "name": "default" }'
+```
+
+## Phase 4 Billing
+
+### Billing Summary
+```bash
+curl http://localhost:8000/v1/billing/summary \
+  -H "Authorization: Bearer <token>"
+```
+
+### Stripe Checkout
+```bash
+curl -X POST http://localhost:8000/v1/billing/checkout \
+  -H "Authorization: Bearer <token>"
 ```
 
 ## Requirements

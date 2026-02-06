@@ -62,6 +62,22 @@ class ApiKeyListResponse(BaseModel):
     total: int
 
 
+class BillingSummaryResponse(BaseModel):
+    plan_name: str
+    status: str
+    used_units: int
+    free_tier_units: int
+    overage_units: int
+
+
+class BillingCheckoutResponse(BaseModel):
+    url: str
+
+
+class BillingPortalResponse(BaseModel):
+    url: str
+
+
 class JobResponse(BaseModel):
     id: str
     status: str

@@ -41,9 +41,11 @@ async def submit_job(
             detail=f"usage_units {usage_units} exceeds MAX_JOB_UNITS",
         )
 
+    org_id = JobService.resolve_org_id(db, api_key_id)
+
     if settings.enforce_usage_limits and settings.free_tier_units > 0:
         if api_key_id:
-            used_units = monthly_usage_units(db, api_key_id)
+            used_units = monthly_usage_units(db, api_key_id=api_key_id, org_id=org_id)
             if used_units + usage_units > settings.free_tier_units:
                 raise HTTPException(
                     status_code=402,
@@ -68,6 +70,7 @@ async def submit_job(
         node_count=node_count,
         usage_units=usage_units,
         api_key_id=api_key_id,
+        org_id=org_id,
     )
 
     if settings.sync_execution:

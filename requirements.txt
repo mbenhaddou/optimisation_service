@@ -36,6 +36,7 @@ python-dotenv==1.0.1
 psutil
 psycopg2-binary==2.9.9
 PyJWT==2.8.0
+stripe==9.11.0
 uvicorn
 pytz==2024.1
 redis==5.0.4

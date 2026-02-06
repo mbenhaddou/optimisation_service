@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Tuple
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from ..models import Job, UsageRecord
+from ..models import ApiKey, Job, UsageRecord
 
 
 class JobService:
@@ -14,6 +14,7 @@ class JobService:
         node_count: Optional[int] = None,
         usage_units: Optional[int] = None,
         api_key_id: Optional[str] = None,
+        org_id: Optional[str] = None,
     ) -> Job:
         job = Job(
             status="PENDING",
@@ -21,11 +22,13 @@ class JobService:
             node_count=node_count,
             usage_units=usage_units,
             api_key_id=api_key_id,
+            org_id=org_id,
         )
         db.add(job)
         db.flush()
         usage_record = UsageRecord(
             api_key_id=api_key_id,
+            org_id=org_id,
             job_id=job.id,
             node_count=node_count,
             usage_units=usage_units,
@@ -65,3 +68,12 @@ class JobService:
         else:
             stmt = stmt.where(Job.api_key_id == api_key_id)
         return db.execute(stmt).scalar_one_or_none()
+
+    @staticmethod
+    def resolve_org_id(db: Session, api_key_id: Optional[str]) -> Optional[str]:
+        if not api_key_id:
+            return None
+        row = db.query(ApiKey).filter(ApiKey.id == api_key_id).one_or_none()
+        if row is None:
+            return None
+        return row.org_id

@@ -39,12 +39,20 @@ def _month_window(now: Optional[datetime] = None) -> Tuple[datetime, datetime]:
     return start, end
 
 
-def monthly_usage_units(db: Session, api_key_id: str, now: Optional[datetime] = None) -> int:
+def monthly_usage_units(
+    db: Session,
+    api_key_id: Optional[str] = None,
+    org_id: Optional[str] = None,
+    now: Optional[datetime] = None,
+) -> int:
     start, end = _month_window(now)
     stmt = (
         select(func.coalesce(func.sum(UsageRecord.usage_units), 0))
-        .where(UsageRecord.api_key_id == api_key_id)
         .where(UsageRecord.created_at >= start)
         .where(UsageRecord.created_at < end)
     )
+    if org_id:
+        stmt = stmt.where(UsageRecord.org_id == org_id)
+    elif api_key_id:
+        stmt = stmt.where(UsageRecord.api_key_id == api_key_id)
     return int(db.execute(stmt).scalar_one())

@@ -241,6 +241,83 @@ main {
   font-family: "Playfair Display", serif;
 }
 
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.test-panel {
+  background: #fffaf6;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.test-panel label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.test-panel input,
+.test-panel select,
+.test-panel textarea {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+.test-panel textarea {
+  min-height: 160px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.test-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.request-preview {
+  padding: 12px;
+  border-radius: 12px;
+  background: #f2f4f7;
+  font-size: 0.85rem;
+}
+
+.response-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.response-box {
+  background: #10161d;
+  color: #dbe5f0;
+  border-radius: 14px;
+  padding: 16px;
+  min-height: 220px;
+  overflow: auto;
+  font-size: 0.85rem;
+}
+
+.error-box {
+  background: #ffe6e6;
+  border: 1px solid #ffb3b3;
+  color: #8b1d1d;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 720px) {
   .site-header {
     flex-direction: column;

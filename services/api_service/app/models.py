@@ -53,6 +53,7 @@ class Job(Base):
     started_at = Column(DateTime(timezone=True))
     finished_at = Column(DateTime(timezone=True))
     api_key_id = Column(String, ForeignKey("api_keys.id"), nullable=True)
+    org_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
 
 
 class UsageRecord(Base):
@@ -60,7 +61,24 @@ class UsageRecord(Base):
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     api_key_id = Column(String, ForeignKey("api_keys.id"), nullable=True, index=True)
+    org_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
     job_id = Column(String, ForeignKey("jobs.id"), nullable=False, index=True)
     node_count = Column(Integer)
     usage_units = Column(Integer)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), index=True)
+
+
+class BillingAccount(Base):
+    __tablename__ = "billing_accounts"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    org_id = Column(String, ForeignKey("organizations.id"), nullable=False, unique=True)
+    stripe_customer_id = Column(String, nullable=True)
+    stripe_subscription_id = Column(String, nullable=True)
+    plan_name = Column(String, default="free", nullable=False)
+    status = Column(String, default="trialing", nullable=False)
+    free_tier_units = Column(Integer, nullable=True)
+    current_period_start = Column(DateTime(timezone=True), nullable=True)
+    current_period_end = Column(DateTime(timezone=True), nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

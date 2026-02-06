@@ -22,6 +22,12 @@ export default function PortalPage() {
           <p>Stripe integration is planned for Phase 4.</p>
         </div>
       </div>
+
+      <div className="hero-actions" style={{ marginTop: "32px" }}>
+        <a className="button primary" href="/portal/test">
+          Open API Test Console
+        </a>
+      </div>
     </div>
   );
 }
