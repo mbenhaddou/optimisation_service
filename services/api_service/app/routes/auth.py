@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.orm import Session
 
 from ..db import get_session
 from ..models import Organization, User
 from ..schemas import LoginRequest, RegisterRequest, TokenResponse
 from ..services.auth import create_access_token, hash_password, verify_password
+from ..services import audit
 
 router = APIRouter(prefix="/v1/auth", tags=["auth"])
 
@@ -27,7 +28,7 @@ def _unique_org_name(db: Session, base_name: str) -> str:
 
 
 @router.post("/register", response_model=TokenResponse)
-def register(payload: RegisterRequest, db: Session = Depends(get_db)):
+def register(payload: RegisterRequest, request: Request, db: Session = Depends(get_db)):
     email = _normalize_email(payload.email)
     existing = db.query(User).filter(User.email == email).one_or_none()
     if existing is not None:
@@ -54,6 +55,17 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     db.add(user)
     db.commit()
     db.refresh(user)
+    audit.record_event_safe(
+        db,
+        action="user.register",
+        org_id=user.org_id,
+        actor_user_id=user.id,
+        target_type="user",
+        target_id=user.id,
+        metadata={"email": user.email},
+        ip_address=request.client.host if request.client else None,
+        user_agent=request.headers.get("User-Agent"),
+    )
 
     try:
         token = create_access_token(user.id, user.org_id, user.role)
@@ -63,7 +75,7 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
 
 
 @router.post("/login", response_model=TokenResponse)
-def login(payload: LoginRequest, db: Session = Depends(get_db)):
+def login(payload: LoginRequest, request: Request, db: Session = Depends(get_db)):
     email = _normalize_email(payload.email)
     user = db.query(User).filter(User.email == email, User.is_active.is_(True)).one_or_none()
     try:
@@ -77,4 +89,14 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)):
         token = create_access_token(user.id, user.org_id, user.role)
     except RuntimeError as exc:
         raise HTTPException(status_code=503, detail=str(exc))
+    audit.record_event_safe(
+        db,
+        action="user.login",
+        org_id=user.org_id,
+        actor_user_id=user.id,
+        target_type="user",
+        target_id=user.id,
+        ip_address=request.client.host if request.client else None,
+        user_agent=request.headers.get("User-Agent"),
+    )
     return TokenResponse(access_token=token)

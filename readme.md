@@ -166,6 +166,27 @@ curl -X POST http://localhost:8000/v1/portal/api-keys \
   -d '{ "name": "default" }'
 ```
 
+Scopes and expiration can be set on creation:
+```bash
+curl -X POST http://localhost:8000/v1/portal/api-keys \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{ "name": "default", "scopes": ["solve:write", "jobs:read"], "expires_at": "2030-01-01T00:00:00Z" }'
+```
+
+### API Key Rotation
+```bash
+curl -X POST http://localhost:8000/v1/portal/api-keys/<api_key_id>/rotate \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json"
+```
+
+### Audit Logs
+```bash
+curl http://localhost:8000/v1/portal/audit \
+  -H "Authorization: Bearer <token>"
+```
+
 ## Phase 4 Billing
 
 ### Billing Summary
@@ -204,6 +225,11 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
 git tag -a v0.5.0 -m "Phase 5 release"
 git push origin v0.5.0
 ```
+
+### Security Defaults
+- Set `ALLOW_ANON=false` to require API keys for solve requests.
+- Rotate API keys regularly via `/v1/portal/api-keys/{id}/rotate`.
+- Store `JWT_SECRET`, `ADMIN_API_KEY`, and Stripe keys in a secrets manager (never commit `.env`).
 
 ## Requirements
 - Python 3.9

@@ -12,7 +12,13 @@ class ApiKey(Base):
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     key = Column(String, unique=True, nullable=False, index=True)
     name = Column(String, nullable=True)
+    scopes = Column(JSON, nullable=True)
     active = Column(Boolean, default=True, nullable=False)
+    expires_at = Column(DateTime(timezone=True), nullable=True)
+    last_used_at = Column(DateTime(timezone=True), nullable=True)
+    last_used_ip = Column(String, nullable=True)
+    rotated_from_id = Column(String, ForeignKey("api_keys.id"), nullable=True)
+    revoked_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     org_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
     created_by_user_id = Column(String, ForeignKey("users.id"), nullable=True)
@@ -82,3 +88,18 @@ class BillingAccount(Base):
     current_period_end = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+
+class AuditLog(Base):
+    __tablename__ = "audit_logs"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    org_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
+    actor_user_id = Column(String, ForeignKey("users.id"), nullable=True, index=True)
+    action = Column(String, nullable=False, index=True)
+    target_type = Column(String, nullable=True)
+    target_id = Column(String, nullable=True)
+    details = Column(JSON, nullable=True)
+    ip_address = Column(String, nullable=True)
+    user_agent = Column(String, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), index=True)

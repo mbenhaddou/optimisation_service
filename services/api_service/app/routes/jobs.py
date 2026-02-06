@@ -11,6 +11,7 @@ from ..services.job_service import JobService
 from ..services.mapping import ensure_mapping_defaults
 from ..services.rate_limit import enforce_rate_limit
 from ..services.usage import compute_node_count, compute_usage_units, monthly_usage_units
+from ..services import audit
 
 router = APIRouter(prefix="/v1", tags=["jobs"])
 
@@ -21,7 +22,7 @@ async def submit_job(
     payload: Dict[str, Any] = Body(...),
     db: Session = Depends(get_db),
 ):
-    api_key_id = get_api_key(request, db)
+    api_key_id = get_api_key(request, db, required_scopes={"solve:write"})
     identifier = api_key_id or f"anon:{request.client.host if request.client else 'unknown'}"
     enforce_rate_limit(identifier)
 
@@ -72,6 +73,17 @@ async def submit_job(
         api_key_id=api_key_id,
         org_id=org_id,
     )
+    audit.record_event_safe(
+        db,
+        action="job.submit",
+        org_id=org_id,
+        actor_user_id=None,
+        target_type="job",
+        target_id=job.id,
+        metadata={"node_count": node_count, "usage_units": usage_units},
+        ip_address=request.client.host if request.client else None,
+        user_agent=request.headers.get("User-Agent"),
+    )
 
     if settings.sync_execution:
         from ..services.solve import solve_job_inline
@@ -86,7 +98,7 @@ async def submit_job(
 
 @router.get("/jobs/{job_id}", response_model=JobResponse)
 def get_job(job_id: str, request: Request, db: Session = Depends(get_db)):
-    api_key_id = get_api_key(request, db)
+    api_key_id = get_api_key(request, db, required_scopes={"jobs:read"})
     identifier = api_key_id or f"anon:{request.client.host if request.client else 'unknown'}"
     enforce_rate_limit(identifier)
     job = JobService.get_job(db, job_id, api_key_id=api_key_id)
@@ -102,7 +114,7 @@ def list_jobs(
     offset: int = Query(0, ge=0),
     db: Session = Depends(get_db),
 ):
-    api_key_id = get_api_key(request, db)
+    api_key_id = get_api_key(request, db, required_scopes={"jobs:read"})
     identifier = api_key_id or f"anon:{request.client.host if request.client else 'unknown'}"
     enforce_rate_limit(identifier)
     items, total = JobService.list_jobs(db, limit=limit, offset=offset, api_key_id=api_key_id)

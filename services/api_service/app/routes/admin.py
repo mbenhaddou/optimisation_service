@@ -27,7 +27,12 @@ def get_db() -> Session:
 def create_api_key(payload: ApiKeyCreate, request: Request, db: Session = Depends(get_db)):
     _require_admin(request)
     key_value = secrets.token_urlsafe(32)
-    api_key = ApiKey(key=key_value, name=payload.name)
+    api_key = ApiKey(
+        key=key_value,
+        name=payload.name,
+        scopes=payload.scopes,
+        expires_at=payload.expires_at,
+    )
     db.add(api_key)
     db.commit()
     db.refresh(api_key)
