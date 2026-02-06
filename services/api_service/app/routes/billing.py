@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.orm import Session
 
+from ..config import settings
 from ..db import get_session
 from ..deps import get_current_user
 from ..models import Organization
@@ -32,12 +33,13 @@ def billing_summary(request: Request, db: Session = Depends(get_db)):
 def billing_checkout(request: Request, db: Session = Depends(get_db)):
     user = get_current_user(request, db)
     org = _get_org(db, user.org_id)
+    base_url = settings.frontend_base_url.rstrip("/")
     try:
         url = billing_service.create_checkout_session(
             db,
             org,
-            success_url="http://localhost:3000/portal?checkout=success",
-            cancel_url="http://localhost:3000/portal?checkout=cancel",
+            success_url=f"{base_url}/portal?checkout=success",
+            cancel_url=f"{base_url}/portal?checkout=cancel",
         )
     except RuntimeError as exc:
         raise HTTPException(status_code=503, detail=str(exc))
@@ -48,10 +50,24 @@ def billing_checkout(request: Request, db: Session = Depends(get_db)):
 def billing_portal(request: Request, db: Session = Depends(get_db)):
     user = get_current_user(request, db)
     org = _get_org(db, user.org_id)
+    base_url = settings.frontend_base_url.rstrip("/")
     try:
         url = billing_service.create_billing_portal_session(
-            db, org, return_url="http://localhost:3000/portal"
+            db, org, return_url=f"{base_url}/portal"
         )
     except RuntimeError as exc:
         raise HTTPException(status_code=503, detail=str(exc))
     return BillingPortalResponse(url=url)
+
+
+@router.post("/webhook")
+async def billing_webhook(request: Request, db: Session = Depends(get_db)):
+    payload = await request.body()
+    signature = request.headers.get("stripe-signature")
+    try:
+        event_type = billing_service.handle_webhook(db, payload, signature)
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc))
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    return {"received": True, "event_type": event_type}

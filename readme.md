@@ -173,6 +173,18 @@ curl -X POST http://localhost:8000/v1/billing/checkout \
   -H "Authorization: Bearer <token>"
 ```
 
+### Stripe Billing Portal
+```bash
+curl -X POST http://localhost:8000/v1/billing/portal \
+  -H "Authorization: Bearer <token>"
+```
+
+### Stripe Webhook
+Configure `STRIPE_WEBHOOK_SECRET` and point your Stripe webhook at:
+```bash
+http://localhost:8000/v1/billing/webhook
+```
+
 ## Requirements
 - Python 3.9
 - JSON for data input
