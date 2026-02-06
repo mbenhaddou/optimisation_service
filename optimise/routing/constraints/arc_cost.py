@@ -57,9 +57,16 @@ class ArcCostConstraint(RoutingConstraint):
         routing = context.routing
 
         time_matrix = solver_input.time_matrix
+        has_haversine = solver_input.haversine_distance is not None
+        if has_haversine:
+            try:
+                has_haversine = len(solver_input.haversine_distance) > 0
+            except TypeError:
+                has_haversine = True
+
         if (
             solver_input.use_walking_distances_when_possible
-            and solver_input.haversine_distance
+            and has_haversine
             and solver_input.walking_distances_threshold
         ):
             time_matrix = _combine_time_matrix(

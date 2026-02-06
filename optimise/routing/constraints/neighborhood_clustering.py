@@ -8,8 +8,13 @@ class NeighborhoodClusteringConstraint(RoutingConstraint):
             return
         if solver_input.neighborhood_clustering_distance != "haversine":
             return
-        if not solver_input.haversine_distance:
+        if solver_input.haversine_distance is None:
             return
+        try:
+            if len(solver_input.haversine_distance) == 0:
+                return
+        except TypeError:
+            pass
 
         routing = context.routing
         manager = context.manager

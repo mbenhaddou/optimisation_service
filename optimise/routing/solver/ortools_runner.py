@@ -13,7 +13,10 @@ from optimise.routing.defaults import (
 )
 from optimise.routing.model.solution import Solution
 from optimise.routing.solver.ortools_builder import OrtoolsSolver
-from solution_routing.solution_routing_CRUD import solution_routing_crud
+try:
+    from solution_routing.solution_routing_CRUD import solution_routing_crud
+except ModuleNotFoundError:
+    solution_routing_crud = None
 
 
 def _post_process_solution(solution_list: List[Solution]) -> Dict[str, Any]:
@@ -98,7 +101,7 @@ def solve_instances(instances: List[Any], solution_routing=None) -> List[Dict[st
 
 
 def _solve_instance(instance: Any, solution_routing=None) -> Dict[str, Any]:
-    if solution_routing is not None:
+    if solution_routing is not None and solution_routing_crud is not None:
         solution_routing.status_msg = translate(
             "optimizing_for_skill", instance.language
         ).format(str(instance))

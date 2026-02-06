@@ -8,9 +8,14 @@ import logging
 logger = logging.getLogger("app")
 
 from optimise.utils.decorators import rate_limited
-from geocode_entries.geo_entries_CRUD import geo_entries_crud
-from db.session import  db_session
 from diskcache import Cache
+
+try:
+    from geocode_entries.geo_entries_CRUD import geo_entries_crud
+    from db.session import db_session
+except ModuleNotFoundError:
+    geo_entries_crud = None
+    db_session = None
 
 try:
     from config import defaults as config
@@ -28,9 +33,15 @@ except ModuleNotFoundError:
 # sql_cache = SqliteCache(sql_cache_path)
 
 geoloc_nominatim = Nominatim(user_agent=config.GEOLOC_NOMINATIM_USER_AGENT)
-geoloc_google = GoogleV3(api_key=config.GOOGLE_API_KEY)
-geoloc_opencage = OpenCage(api_key=config.GEOLOC_OPENCAGE_API_KEY)
-geoloc_mapbox = MapBox(api_key=config.MAPBOX_OSRM_API_KEYS)
+
+google_key = getattr(config, "GOOGLE_API_KEY", "") or os.getenv("GOOGLE_API_KEY", "")
+geoloc_google = GoogleV3(api_key=google_key) if google_key else None
+
+opencage_key = getattr(config, "GEOLOC_OPENCAGE_API_KEY", "") or os.getenv("GEOLOC_OPENCAGE_API_KEY", "")
+geoloc_opencage = OpenCage(api_key=opencage_key) if opencage_key else None
+
+mapbox_key = getattr(config, "MAPBOX_OSRM_API_KEYS", "") or os.getenv("MAPBOX_OSRM_API_KEYS", "")
+geoloc_mapbox = MapBox(api_key=mapbox_key) if mapbox_key else None
 
 _local_cache = None
 
@@ -58,10 +69,14 @@ def get_geolocation(address_dict, default_service="nominatim"):
     try:
         lat_long = None
         if ENABLE_GEOCODING_CACHE:
-            key = geo_entries_crud.hash_key(address_str(address_dict))
+            addr_key = address_str(address_dict)
+            key = addr_key
+            if geo_entries_crud is not None:
+                key = geo_entries_crud.hash_key(addr_key)
             if GEOLOC_CACHE_BACKEND == "db":
-                session = db_session()
-                lat_long = geo_entries_crud.get(session, key)
+                if geo_entries_crud is not None and db_session is not None:
+                    session = db_session()
+                    lat_long = geo_entries_crud.get(session, key)
             elif GEOLOC_CACHE_BACKEND == "local":
                 lat_long = _get_local_cache().get(key)
 
@@ -72,9 +87,10 @@ def get_geolocation(address_dict, default_service="nominatim"):
                 lat_long = {"latitude": geoloc.latitude, "longitude": geoloc.longitude}
                 if ENABLE_GEOCODING_CACHE:
                     if GEOLOC_CACHE_BACKEND == "db":
-                        if session is None:
-                            session = db_session()
-                        geo_entries_crud.create(session, key, lat_long)
+                        if geo_entries_crud is not None and db_session is not None:
+                            if session is None:
+                                session = db_session()
+                            geo_entries_crud.create(session, key, lat_long)
                     elif GEOLOC_CACHE_BACKEND == "local":
                         _get_local_cache().set(key, lat_long)
             else:
@@ -93,11 +109,12 @@ def geocode_addresses(address_dict, default_service="nominatim"):
         "nominatim": geoloc_nominatim,
         "mapbox": geoloc_mapbox,
         "opencage": geoloc_opencage,
-        "google": geoloc_google
+        "google": geoloc_google,
     }
+    services = {k: v for k, v in services.items() if v is not None}
 
     if default_service.lower() not in services:
-        raise ValueError("Invalid default service specified")
+        default_service = "nominatim"
 
     # Determine the order of services based on the default_service parameter
     ordered_services = [services[default_service.lower()]] + [services[key] for key in services if
