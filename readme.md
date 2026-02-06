@@ -92,6 +92,18 @@ Configure:
 ### Mapping Service
 If you run a mapping server, set `MAPPING_SERVICE_URL` (or `ROUTING_ENGINE`) in `.env`.
 
+## OSRM Mapping Server (Belgium)
+
+Setup scripts live in `services/mapping_server`.
+
+```bash
+./services/mapping_server/download_belgium.sh
+./services/mapping_server/prepare_belgium.sh
+./services/mapping_server/start_osrm.sh
+```
+
+The OSRM service will run on `http://localhost:5000`.
+
 ## Phase 2 Web Portal (Next.js)
 
 Portal lives in `services/web_portal`.
