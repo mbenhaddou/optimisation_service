@@ -1,4 +1,6 @@
 
+[![Tests](https://github.com/mbenhaddou/optimisation_service/actions/workflows/tests.yml/badge.svg)](https://github.com/mbenhaddou/optimisation_service/actions/workflows/tests.yml)
+
 # Mentis Optimization Library
 
 ## Table of Contents
@@ -134,4 +136,3 @@ For a more detailed changelog, please check the [CHANGELOG.md](./CHANGELOG.md) f
 #### Added
 - Initial release.
 - Features for routing and scheduling optimization.
-
