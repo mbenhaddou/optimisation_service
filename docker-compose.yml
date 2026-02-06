@@ -1,0 +1,64 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-optimisation}
+      POSTGRES_USER: ${POSTGRES_USER:-optimisation}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-optimisation}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: .
+      dockerfile: services/api_service/Dockerfile
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg2://optimisation:optimisation@postgres:5432/optimisation}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      CELERY_BROKER_URL: ${CELERY_BROKER_URL:-redis://redis:6379/0}
+      CELERY_RESULT_BACKEND: ${CELERY_RESULT_BACKEND:-redis://redis:6379/0}
+      ALLOW_ANON: ${ALLOW_ANON:-true}
+      AUTO_CREATE_DB: ${AUTO_CREATE_DB:-true}
+      API_KEY_HEADER: ${API_KEY_HEADER:-X-API-Key}
+      ADMIN_KEY_HEADER: ${ADMIN_KEY_HEADER:-X-Admin-Key}
+      ADMIN_API_KEY: ${ADMIN_API_KEY:-}
+      ENABLE_RATE_LIMITING: ${ENABLE_RATE_LIMITING:-true}
+      API_RATE_LIMIT_PER_MINUTE: ${API_RATE_LIMIT_PER_MINUTE:-60}
+      API_RATE_LIMIT_WINDOW_SECONDS: ${API_RATE_LIMIT_WINDOW_SECONDS:-60}
+      ENFORCE_USAGE_LIMITS: ${ENFORCE_USAGE_LIMITS:-false}
+      FREE_TIER_UNITS: ${FREE_TIER_UNITS:-200000}
+      MAX_JOB_NODES: ${MAX_JOB_NODES:-0}
+      MAX_JOB_UNITS: ${MAX_JOB_UNITS:-0}
+      MAPPING_SERVICE_URL: ${MAPPING_SERVICE_URL:-}
+
+  worker:
+    build:
+      context: .
+      dockerfile: services/worker_service/Dockerfile
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg2://optimisation:optimisation@postgres:5432/optimisation}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      CELERY_BROKER_URL: ${CELERY_BROKER_URL:-redis://redis:6379/0}
+      CELERY_RESULT_BACKEND: ${CELERY_RESULT_BACKEND:-redis://redis:6379/0}
+      JOB_TIMEOUT_SECONDS: ${JOB_TIMEOUT_SECONDS:-300}
+      MAPPING_SERVICE_URL: ${MAPPING_SERVICE_URL:-}
+
+volumes:
+  pg_data:

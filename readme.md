@@ -29,6 +29,69 @@ For a more detailed introduction, refer to the [Introduction.md](./documentation
 - **Routing**: Optimize routes for teams and resources.
 - **Scheduling**: Assign tasks to work centers based on various constraints.
 
+## Phase 1 API Service (FastAPI + Worker)
+
+Phase 1 introduces a split-services architecture:
+- `services/api_service` for HTTP API + job submission
+- `services/worker_service` for async job execution
+
+### Local Run (SQLite + Redis)
+1. Create `.env` from `.env.example` and adjust values if needed.
+2. Install dependencies:
+```bash
+python -m venv .venv
+./.venv/bin/pip install -r requirements.txt
+```
+3. Start Redis (or point `REDIS_URL` to an existing instance).
+4. Start the API:
+```bash
+PYTHONPATH=. ./.venv/bin/uvicorn services.api_service.app.main:app --reload --port 8000
+```
+5. Start the worker:
+```bash
+PYTHONPATH=. ./.venv/bin/celery -A services.worker_service.app.celery_app.celery_app worker --loglevel=info
+```
+
+### Docker Compose (Postgres + Redis)
+```bash
+docker compose up --build
+```
+API will be available at `http://localhost:8000`.
+
+### Submit a Solve Job
+```bash
+curl -X POST http://localhost:8000/v1/solve \\
+  -H \"Content-Type: application/json\" \\
+  -d @optimise/routing/request_offline_deterministic.json
+```
+
+Check status:
+```bash
+curl http://localhost:8000/v1/jobs/<job_id>
+```
+
+### Admin API Keys
+Set `ADMIN_API_KEY` in `.env`, then create keys:
+```bash
+curl -X POST http://localhost:8000/v1/admin/api-keys \\
+  -H \"Content-Type: application/json\" \\
+  -H \"X-Admin-Key: <ADMIN_API_KEY>\" \\
+  -d '{\"name\": \"default\"}'
+```
+
+### Free Tier Usage Units
+Usage is computed as `node_count * node_count` (distance matrix size). Configure:
+- `FREE_TIER_UNITS` for per-month free-tier cap (per API key)
+- `ENFORCE_USAGE_LIMITS=true` to enforce
+
+### Rate Limiting
+Configure:
+- `ENABLE_RATE_LIMITING=true`
+- `API_RATE_LIMIT_PER_MINUTE=60`
+
+### Mapping Service
+If you run a mapping server, set `MAPPING_SERVICE_URL` (or `ROUTING_ENGINE`) in `.env`.
+
 ## Requirements
 - Python 3.9
 - JSON for data input
