@@ -39,6 +39,52 @@ def instance_to_solver_input(instance: Any) -> SolverInput:
         ROUTING_TIME_RESOLUTION,
     ) - 1
 
+    precedence_constraints: List[tuple] = []
+    if hasattr(instance, "task_dependencies"):
+        dependencies = getattr(instance, "task_dependencies", []) or []
+        if hasattr(instance, "work_orders"):
+            order_index = {str(wo.id): idx for idx, wo in enumerate(instance.work_orders)}
+            num_depots = getattr(instance, "nb_depots", len(set(instance.starts)) if instance.starts else 1)
+            for dependency in dependencies:
+                before_id = dependency.get("task_id")
+                after_ids = dependency.get("must_be_before") or []
+                if before_id is None:
+                    continue
+                before_idx = order_index.get(str(before_id))
+                if before_idx is None:
+                    continue
+                before_node = before_idx + num_depots
+                for after_id in after_ids:
+                    after_idx = order_index.get(str(after_id))
+                    if after_idx is None:
+                        continue
+                    after_node = after_idx + num_depots
+                    precedence_constraints.append((before_node, after_node))
+
+    allowed_vehicles_by_node: dict[int, list[int]] = {}
+    if hasattr(instance, "zone_restrictions"):
+        zone_restrictions = getattr(instance, "zone_restrictions", []) or []
+        if hasattr(instance, "work_orders") and hasattr(instance, "workers"):
+            order_index = {str(wo.id): idx for idx, wo in enumerate(instance.work_orders)}
+            vehicle_index = {str(worker.id): idx for idx, worker in enumerate(instance.workers)}
+            num_depots = getattr(instance, "nb_depots", len(set(instance.starts)) if instance.starts else 1)
+            for zone in zone_restrictions:
+                task_ids = zone.get("task_ids") or []
+                allowed_vehicles = zone.get("allowed_vehicles") or []
+                if not task_ids or not allowed_vehicles:
+                    continue
+                allowed_indices = [
+                    vehicle_index[vid] for vid in allowed_vehicles if vid in vehicle_index
+                ]
+                if not allowed_indices:
+                    continue
+                for task_id in task_ids:
+                    idx = order_index.get(str(task_id))
+                    if idx is None:
+                        continue
+                    node = idx + num_depots
+                    allowed_vehicles_by_node[node] = allowed_indices
+
     return SolverInput(
         time_matrix=instance.time_matrix,
         distance_matrix=instance.distance_matrix,
@@ -48,7 +94,11 @@ def instance_to_solver_input(instance: Any) -> SolverInput:
         starts=instance.starts,
         ends=instance.ends,
         breaks=breaks,
+        soft_time_windows=getattr(instance, "soft_time_windows", []),
+        precedence_constraints=precedence_constraints,
+        allowed_vehicles_by_node=allowed_vehicles_by_node,
         max_working_time=instance.max_working_time,
+        max_route_distance=getattr(instance, "max_route_distance", 0),
         allow_slack=instance.allow_slack,
         horizon=instance.horizon,
         penalties=penalties,
@@ -66,6 +116,7 @@ def instance_to_solver_input(instance: Any) -> SolverInput:
         local_search_metaheuristic=getattr(instance, "local_search_metaheuristic", None),
         time_limit_seconds=getattr(instance, "time_limit", None),
         no_improvement_limit=getattr(instance, "no_improvement_limit", None),
+        objective=getattr(instance, "optimization_target", None),
         num_depots=getattr(instance, "nb_depots", None),
         vehicle_penalty=getattr(instance, "vehicle_penalty", None),
         time_window_tolerance=time_window_tolerance,

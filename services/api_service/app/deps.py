@@ -27,7 +27,11 @@ def get_api_key(
     db: Session,
     required_scopes: Optional[Iterable[str]] = None,
 ) -> Optional[str]:
-    api_key = request.headers.get(settings.api_key_header)
+    api_key = None
+    auth_header = request.headers.get("Authorization")
+    if auth_header and auth_header.lower().startswith("bearer "):
+        api_key = auth_header.split(" ", 1)[1].strip()
+
     if not api_key:
         if settings.allow_anonymous:
             return None
@@ -73,3 +77,8 @@ def get_current_user(request: Request, db: Session) -> User:
     if user is None:
         raise HTTPException(status_code=401, detail="User not found")
     return user
+
+
+def require_roles(user: User, allowed_roles: set[str]) -> None:
+    if user.role not in allowed_roles:
+        raise HTTPException(status_code=403, detail="Insufficient permissions")

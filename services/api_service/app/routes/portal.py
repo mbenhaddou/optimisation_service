@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from sqlalchemy.orm import Session
 
 from ..db import get_session
-from ..models import ApiKey, AuditLog, Organization
+from ..models import ApiKey, AuditLog, Organization, User
 from ..schemas import (
     ApiKeyCreate,
     ApiKeyListResponse,
@@ -14,8 +14,10 @@ from ..schemas import (
     AuditLogListResponse,
     OrganizationResponse,
     UserProfileResponse,
+    UserListResponse,
+    UserRoleUpdate,
 )
-from ..deps import get_current_user
+from ..deps import get_current_user, require_roles
 from ..services import audit
 
 router = APIRouter(prefix="/v1/portal", tags=["portal"])
@@ -156,3 +158,49 @@ def list_audit_logs(
     items = query.all()
     total = db.query(AuditLog).filter(AuditLog.org_id == user.org_id).count()
     return AuditLogListResponse(items=items, total=total)
+
+
+@router.get("/users", response_model=UserListResponse)
+def list_users(request: Request, db: Session = Depends(get_db)):
+    user = get_current_user(request, db)
+    require_roles(user, {"owner", "admin", "manager"})
+    rows = (
+        db.query(User)
+        .filter(User.org_id == user.org_id)
+        .order_by(User.created_at.desc())
+        .all()
+    )
+    return UserListResponse(items=rows, total=len(rows))
+
+
+@router.patch("/users/{user_id}", response_model=UserProfileResponse)
+def update_user_role(
+    user_id: str,
+    payload: UserRoleUpdate,
+    request: Request,
+    db: Session = Depends(get_db),
+):
+    user = get_current_user(request, db)
+    require_roles(user, {"owner", "admin"})
+    target = (
+        db.query(User)
+        .filter(User.id == user_id, User.org_id == user.org_id)
+        .one_or_none()
+    )
+    if target is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    target.role = payload.role
+    db.commit()
+    db.refresh(target)
+    audit.record_event_safe(
+        db,
+        action="user.role.update",
+        org_id=user.org_id,
+        actor_user_id=user.id,
+        target_type="user",
+        target_id=target.id,
+        metadata={"role": payload.role},
+        ip_address=request.client.host if request.client else None,
+        user_agent=request.headers.get("User-Agent"),
+    )
+    return target

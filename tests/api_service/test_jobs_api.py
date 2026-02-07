@@ -26,16 +26,17 @@ def test_submit_job_with_api_key(client):
     response = client.post("/v1/admin/api-keys", json={"name": "default"}, headers=admin_headers)
     assert response.status_code == 200
     api_key = response.json()["key"]
+    auth_header = {"Authorization": f"Bearer {api_key}"}
 
     payload = _load_payload()
     response = client.post(
         "/v1/solve",
         json=payload,
-        headers={settings.api_key_header: api_key},
+        headers=auth_header,
     )
     assert response.status_code == 200
 
-    response = client.get("/v1/jobs", headers={settings.api_key_header: api_key})
+    response = client.get("/v1/jobs", headers=auth_header)
     assert response.status_code == 200
     listed = response.json()
     assert listed["total"] == 1

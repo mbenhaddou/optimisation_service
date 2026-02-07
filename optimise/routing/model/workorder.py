@@ -17,7 +17,10 @@ class WorkOrder(Node):
         "earliest_start_datetime", "latest_end_datetime", "must_start_datetime",
         "earliest_machine_availability_datetime", "latest_machine_availability_datetime",
         "spare_part_available_date", "spare_part_available_time", "longitude", "latitude",
-        "time_constraint", "assigned_worker", "slack_time", "errors", "must_end_datetime", "spare_part_available_date"
+        "time_constraint", "assigned_worker", "slack_time", "errors", "must_end_datetime", "spare_part_available_date",
+        "preferred_time_window_start_datetime", "preferred_time_window_end_datetime",
+        "soft_time_window_penalty",
+        "required_assignment",
     ]
 
     def __init__(self, **kwargs):
@@ -65,6 +68,8 @@ class WorkOrder(Node):
     def workorder_penalty(self):
         if self.must_start_datetime is not None:
             return int(1e10)
+        if getattr(self, "required_assignment", False):
+            return int(1e12)
 
         return int(self.available_duration * VEHICULE_DROPPING_PENALTY/((self.latest_end-self.instance.current_optimization_date).days+1))
 
@@ -120,6 +125,32 @@ class WorkOrder(Node):
         else:
             interval_end = day_ends_at_minutes
 
+        return (int(interval_start), int(interval_end))
+
+    def get_preferred_time_constraint(self):
+        if (
+            self.preferred_time_window_start_datetime is None
+            or self.preferred_time_window_end_datetime is None
+            or self.instance is None
+            or self.instance.current_optimization_date is None
+        ):
+            return None
+
+        preferred_start = self.preferred_time_window_start_datetime
+        preferred_end = self.preferred_time_window_end_datetime
+        if preferred_start.date() != self.instance.current_optimization_date.date():
+            return None
+
+        preferred_start_minutes = convert_time_to_app_unit(preferred_start.time())
+        preferred_end_minutes = convert_time_to_app_unit(preferred_end.time())
+
+        day_starts_at_minutes = convert_time_to_app_unit(self.visiting_hour_start)
+        day_ends_at_minutes = convert_time_to_app_unit(self.visiting_hour_end)
+
+        interval_start = max(preferred_start_minutes, day_starts_at_minutes)
+        interval_end = min(preferred_end_minutes, day_ends_at_minutes)
+        if interval_start > interval_end:
+            return None
         return (int(interval_start), int(interval_end))
 
 

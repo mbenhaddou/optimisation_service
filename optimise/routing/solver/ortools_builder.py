@@ -8,13 +8,16 @@ from optimise.routing.constraints import (
     BreaksConstraint,
     CapacityConstraint,
     ConstraintContext,
+    DistanceConstraint,
     LoadDistributionConstraint,
     NeighborhoodClusteringConstraint,
     NodeDroppingConstraint,
+    PrecedenceConstraint,
     PrioritySoftConstraint,
     RoutingConstraint,
     TimeWindowConstraint,
     VehicleCostConstraint,
+    ZoneRestrictionConstraint,
 )
 from optimise.routing.core.monitoring import NoImprovementMonitor
 from optimise.routing.input.solver_input import SolverInput
@@ -25,7 +28,10 @@ DEFAULT_CONSTRAINTS = (
     VehicleCostConstraint(),
     NeighborhoodClusteringConstraint(),
     CapacityConstraint(),
+    DistanceConstraint(),
     TimeWindowConstraint(),
+    PrecedenceConstraint(),
+    ZoneRestrictionConstraint(),
     BreaksConstraint(),
     PrioritySoftConstraint(),
     NodeDroppingConstraint(),

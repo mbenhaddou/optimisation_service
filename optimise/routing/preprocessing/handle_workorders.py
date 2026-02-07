@@ -179,6 +179,22 @@ def handle_order_datetime_operations(order: Dict[str, Any], request: Dict[str, A
         else combine_date_time(order, "must_end_date", "must_end_time")
     )
 
+    preferred_start = order.get("preferred_time_window_start")
+    preferred_end = order.get("preferred_time_window_end")
+    if isinstance(preferred_start, datetime):
+        order["preferred_time_window_start_datetime"] = preferred_start
+    elif preferred_start not in ["0", "", None]:
+        order["preferred_time_window_start_datetime"] = date_from_string(
+            preferred_start, request["date_format"]
+        )
+
+    if isinstance(preferred_end, datetime):
+        order["preferred_time_window_end_datetime"] = preferred_end
+    elif preferred_end not in ["0", "", None]:
+        order["preferred_time_window_end_datetime"] = date_from_string(
+            preferred_end, request["date_format"]
+        )
+
     if order["latest_end_datetime"] < order["earliest_start_datetime"]:
         order["latest_end_datetime"] = order["earliest_start_datetime"]
 
@@ -212,6 +228,10 @@ def handle_orders(request: Dict[str, Any], errors=None, enable_geocoding: bool =
                 translate("error_processing_order", request.get("language")).format(order.get("id", "unknown"), str(e))
             )
             continue
+        if order.get("preferred_time_windows") and not order.get("preferred_time_window_start"):
+            preferred_window = order["preferred_time_windows"][0]
+            order["preferred_time_window_start"] = preferred_window.get("start")
+            order["preferred_time_window_end"] = preferred_window.get("end")
         convert_visiting_hours_to_time(order, request)
         set_and_geolocate_address(
             order,

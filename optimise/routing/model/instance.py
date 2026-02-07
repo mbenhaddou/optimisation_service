@@ -29,6 +29,8 @@ class Instance:
                  time_windows: Optional[List[Union[int, float]]] = None,
                  time_matrix: Optional[List[List[Union[int, float]]]] = None,
                  distance_matrix: Optional[List[List[Union[int, float]]]] = None,
+                 precomputed_time_matrix: Optional[List[List[Union[int, float]]]] = None,
+                 precomputed_distance_matrix: Optional[List[List[Union[int, float]]]] = None,
                  initial_routes: Optional[List['Route']] = None,  # Assuming Route is another class
                  start_at: str = "depot",
                  end_at: str = "depot",
@@ -53,6 +55,7 @@ class Instance:
                  neighborhood_clustering_penalty_factor=DEFAULT_NEIGHBORHOOD_CLUSTERING_PENALTY_FACTOR,
                  interval_time_tolerance=DEFAULT_TIME_TOLERANCE_MINUTES,
                  max_working_time=MAX_WORKING_TIME_MINUTES,
+                 max_route_distance=0,
                  time_limit=0.008,
                  result_type=DEFAULT_RESULT_TYPE, # fast, optimized or best
                  first_solution_strategy=None,
@@ -64,8 +67,11 @@ class Instance:
         self.language = language
         self._workers =  []
         self._work_orders =  []
+        self.soft_time_windows = []
         self.time_matrix = time_matrix
         self.distance_matrix = distance_matrix
+        self.precomputed_time_matrix = precomputed_time_matrix
+        self.precomputed_distance_matrix = precomputed_distance_matrix
         self.period_start = period_start
         self.initial_routes = initial_routes if initial_routes else []
         self.depots = []
@@ -95,6 +101,7 @@ class Instance:
         self.starts=[]
         self.ends=[]
         self.max_working_time=int(max_working_time)
+        self.max_route_distance=int(max_route_distance) if max_route_distance else 0
         self.locations=[]
         self.service_durations=[]
         self._departure_time=None
@@ -106,7 +113,8 @@ class Instance:
         self._rng = random.Random(random_seed) if random_seed is not None else random.Random()
         self.time_limit=time_limit
         self.account_for_priority=account_for_priority
-        self.horizon= convert_units(24, self.time_unit,self.language, ROUTING_TIME_RESOLUTION) - 1
+        # Horizon is one full day in routing resolution, independent of input time unit.
+        self.horizon = convert_units(24, "hours", self.language, ROUTING_TIME_RESOLUTION) - 1
         self._first_solution_strategy=first_solution_strategy
         self._local_search_metaheuristic=local_search_metaheuristic
         self.result_type=result_type
@@ -117,6 +125,10 @@ class Instance:
         self.neighborhood_clustering_penalty_factor=neighborhood_clustering_penalty_factor
         self.use_walking_distances_when_possible = use_walking_distances_when_possible
         self.walking_distances_threshold=walking_distances_threshold
+        self.task_dependencies = []
+        self.zone_restrictions = []
+        self.traffic_mode = None
+        self.traffic_include_historical = False
     def __repr__(self):
         return self.name
 
@@ -211,10 +223,12 @@ class Instance:
         self.depots=[]
         self.service_durations=[]
         self.time_windows=[]
+        self.soft_time_windows=[]
         self.distance_matrix=[]
         self.time_matrix=[]
         self.penalties=[]
         self.current_optimization_date=date
+        self.allow_soft_time_windows = False
         self.location_priorities=[]
 
 
@@ -275,7 +289,19 @@ class Instance:
         self.locations.extend([{"address":r.address, "latitude":r.latitude, "longitude":r.longitude} for r in self.work_orders])
         location_latlon = [[l["latitude"], l["longitude"]] for l in self.locations]
         location_lonlat = [[l["longitude"], l["latitude"]] for l in self.locations]
-        if self.distance_matrix_method == "haversine":
+        if (
+            self.precomputed_distance_matrix
+            and self.precomputed_time_matrix
+            and len(self.precomputed_distance_matrix) == len(self.locations)
+            and len(self.precomputed_time_matrix) == len(self.locations)
+        ):
+            self.distance_matrix = self.precomputed_distance_matrix
+            self.time_matrix = self.precomputed_time_matrix
+            self.haversine_distance = haversine_distance_matrix(location_latlon)
+            for order in self.work_orders:
+                self.service_durations.append(order.work_order_duration)
+                self.penalties.append(10000)
+        elif self.distance_matrix_method == "haversine":
             self.haversine_distance = haversine_distance_matrix(location_latlon)
             self.distance_matrix = self.haversine_distance
             speed_mps = (self.driving_speed_kmh * 1000) / 3600.0
@@ -296,17 +322,35 @@ class Instance:
                 raise ValueError(translate("failed_to_create_distance_matrix", self.language).format(e))
 
             self.haversine_distance = haversine_distance_matrix(location_latlon)
-        for order in self.work_orders:
-            self.service_durations.append(order.work_order_duration)
-            self.penalties.append(10000)
+            for order in self.work_orders:
+                self.service_durations.append(order.work_order_duration)
+                self.penalties.append(10000)
+
+        if self.traffic_mode == "predictive" and self.time_matrix:
+            multiplier = 1.05
+            if self.traffic_include_historical:
+                multiplier = 1.1
+            self.time_matrix = [
+                [int(value * multiplier) for value in row] for row in self.time_matrix
+            ]
 
         self.time_windows = [(datetime_to_integer(str(self.day_starts_at), self.language,date_format=self.date_format.split()[1],
                                                      intra_day=True),
                                  datetime_to_integer(str(self.day_ends_at), self.language,date_format=self.date_format.split()[1],
                                                      intra_day=True)) for i in range(0, self.nb_depots)]
+        self.soft_time_windows = [None for _ in range(0, self.nb_depots)]
 
         for order in self.work_orders:
             self.time_windows.append(order.get_time_constraint())
+            preferred_window = order.get_preferred_time_constraint()
+            penalty = order.soft_time_window_penalty
+            if preferred_window and penalty:
+                self.soft_time_windows.append(
+                    (preferred_window[0], preferred_window[1], int(penalty))
+                )
+                self.allow_soft_time_windows = True
+            else:
+                self.soft_time_windows.append(None)
 
         for i, wo in enumerate(self.work_orders):
             self.location_priorities.append((i + self.nb_depots, wo.priority))
@@ -374,6 +418,7 @@ class Instance:
             driving_speed_kmh = instance_data.get('driving_speed_kmh', DEFAULT_DRIVING_SPEED_KMH)
             allow_slack = instance_data.get('allow_slack')
             max_working_time=instance_data.get("max_working_time")
+            max_route_distance=instance_data.get("max_route_distance", 0)
             interval_time_tolerance=instance_data.get("time_interval_tolerance",None)
             time_limit = instance_data.get('time_limit')
             first_solution_strategy = instance_data.get('first_solution_strategy', None)
@@ -408,6 +453,7 @@ class Instance:
                 driving_speed_kmh=driving_speed_kmh,
                 allow_slack=allow_slack,
                 max_working_time=int(max_working_time),
+                max_route_distance=int(max_route_distance) if max_route_distance else 0,
                 interval_time_tolerance=interval_time_tolerance,
                 time_limit=int(time_limit),
                 randomize_response=randomize_response,
@@ -420,6 +466,18 @@ class Instance:
                 neighborhood_clustering_penalty_factor=neighborhood_clustering_penalty_factor,
                 use_walking_distances_when_possible=use_walking_distances_when_possible,
                 walking_distances_threshold=walking_distances_threshold
+            )
+            instance.precomputed_distance_matrix = instance_data.get(
+                "precomputed_distance_matrix"
+            )
+            instance.precomputed_time_matrix = instance_data.get(
+                "precomputed_time_matrix"
+            )
+            instance.task_dependencies = instance_data.get("task_dependencies", [])
+            instance.zone_restrictions = instance_data.get("zone_restrictions", [])
+            instance.traffic_mode = instance_data.get("traffic_mode")
+            instance.traffic_include_historical = bool(
+                instance_data.get("traffic_include_historical", False)
             )
 
             return instance

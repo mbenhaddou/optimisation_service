@@ -1,13 +1,19 @@
 import importlib
+import os
 from pathlib import Path
 
 import pytest
+
+os.environ.setdefault("ADMIN_API_KEY", "test-admin")
+os.environ.setdefault("ADMIN_KEY_HEADER", "X-Admin-Key")
+os.environ.setdefault("API_KEY_HEADER", "Authorization")
+os.environ.setdefault("PASSWORD_HASH_SCHEME", "pbkdf2_sha256")
 
 
 def _reload_api_modules():
     from services.api_service.app import config, db, models, main
 
-    importlib.reload(config)
+    config.reload_settings()
     importlib.reload(db)
     importlib.reload(models)
     importlib.reload(main)
@@ -40,7 +46,7 @@ def client(app):
 
 
 @pytest.fixture(autouse=True)
-def reset_db():
+def reset_db(app):
     from services.api_service.app.db import Base, engine
     from services.api_service.app import models  # noqa: F401
 

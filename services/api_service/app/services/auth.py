@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import os
 from typing import Any, Dict, Optional
 
 try:
@@ -13,7 +14,18 @@ except ModuleNotFoundError:  # pragma: no cover - optional in local tests
 
 from ..config import settings
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto") if CryptContext else None
+
+def _build_pwd_context() -> Optional["CryptContext"]:
+    if CryptContext is None:
+        return None
+    scheme = os.getenv("PASSWORD_HASH_SCHEME", "bcrypt").strip() or "bcrypt"
+    supported = ["bcrypt", "pbkdf2_sha256"]
+    if scheme not in supported:
+        scheme = "bcrypt"
+    return CryptContext(schemes=supported, deprecated="auto", default=scheme)
+
+
+pwd_context = _build_pwd_context()
 
 
 def hash_password(password: str) -> str:

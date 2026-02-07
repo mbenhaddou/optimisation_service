@@ -11,7 +11,7 @@ class TimeWindowConstraint(RoutingConstraint):
         manager = context.manager
 
         transit_index = context.transit_callback_index
-        if transit_index is None:
+        if transit_index is None or solver_input.objective == "distance":
             def time_callback(from_index: int, to_index: int) -> int:
                 from_node = manager.IndexToNode(from_index)
                 to_node = manager.IndexToNode(to_index)
@@ -21,7 +21,8 @@ class TimeWindowConstraint(RoutingConstraint):
                 )
 
             transit_index = routing.RegisterTransitCallback(time_callback)
-            context.transit_callback_index = transit_index
+            if context.transit_callback_index is None:
+                context.transit_callback_index = transit_index
 
         routing.AddDimension(
             transit_index,
@@ -51,6 +52,18 @@ class TimeWindowConstraint(RoutingConstraint):
             )
             time_dimension.CumulVar(index).SetRange(start_time, end_with_tolerance)
             routing.AddToAssignment(time_dimension.SlackVar(index))
+
+            if location_idx < len(solver_input.soft_time_windows):
+                soft_window = solver_input.soft_time_windows[location_idx]
+                if soft_window:
+                    soft_start, soft_end, penalty = soft_window
+                    if penalty > 0:
+                        time_dimension.SetCumulVarSoftLowerBound(
+                            index, int(soft_start), int(penalty)
+                        )
+                        time_dimension.SetCumulVarSoftUpperBound(
+                            index, int(soft_end), int(penalty)
+                        )
 
         for vehicle_id in range(solver_input.num_vehicles):
             start_node = (

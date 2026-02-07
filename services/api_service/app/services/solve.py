@@ -6,7 +6,8 @@ from sqlalchemy.orm import Session
 
 from ..config import settings
 from ..models import Job
-from optimise.routing.preprocessing import preprocess_request
+from ..services.webhook_service import send_webhook_events
+from optimise.routing.preprocessing.preprocess_request import preprocess_request
 from optimise.routing.data_model import get_optimisation_instances
 from optimise.routing.solver.ortools_runner import solve_instances
 
@@ -48,5 +49,12 @@ def solve_job_inline(db: Session, job_id: str) -> Job:
         job.finished_at = datetime.utcnow()
         db.commit()
         db.refresh(job)
+        event_name = "optimization.completed" if job.status == "COMPLETED" else "optimization.failed"
+        send_webhook_events(
+            db,
+            job.org_id,
+            event_name,
+            {"job_id": job.id, "status": job.status},
+        )
 
     return job

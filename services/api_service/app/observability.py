@@ -78,6 +78,10 @@ def configure_logger(name: str) -> logging.Logger:
     return logger
 
 
+def _http_logging_enabled() -> bool:
+    return os.getenv("LOG_HTTP_ENABLED", "true").lower() in {"1", "true", "yes", "y", "on"}
+
+
 @dataclass
 class MetricsCollector:
     lock: Lock = field(default_factory=Lock)
@@ -131,31 +135,33 @@ class RequestIdMiddleware(BaseHTTPMiddleware):
         except Exception:
             duration_ms = (time.perf_counter() - start) * 1000
             metrics.record(request.method, request.url.path, 500, duration_ms)
-            self.logger.exception(
-                "request.error",
-                extra={
-                    "method": request.method,
-                    "path": request.url.path,
-                    "status_code": 500,
-                    "duration_ms": round(duration_ms, 2),
-                    "client": request.client.host if request.client else None,
-                },
-            )
+            if _http_logging_enabled():
+                self.logger.exception(
+                    "request.error",
+                    extra={
+                        "method": request.method,
+                        "path": request.url.path,
+                        "status_code": 500,
+                        "duration_ms": round(duration_ms, 2),
+                        "client": request.client.host if request.client else None,
+                    },
+                )
             request_id_ctx.reset(token)
             raise
 
         duration_ms = (time.perf_counter() - start) * 1000
         metrics.record(request.method, request.url.path, response.status_code, duration_ms)
         response.headers["X-Request-Id"] = request_id
-        self.logger.info(
-            "request.complete",
-            extra={
-                "method": request.method,
-                "path": request.url.path,
-                "status_code": response.status_code,
-                "duration_ms": round(duration_ms, 2),
-                "client": request.client.host if request.client else None,
-            },
-        )
+        if _http_logging_enabled():
+            self.logger.info(
+                "request.complete",
+                extra={
+                    "method": request.method,
+                    "path": request.url.path,
+                    "status_code": response.status_code,
+                    "duration_ms": round(duration_ms, 2),
+                    "client": request.client.host if request.client else None,
+                },
+            )
         request_id_ctx.reset(token)
         return response

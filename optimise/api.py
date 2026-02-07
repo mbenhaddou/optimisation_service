@@ -1,7 +1,9 @@
 import copy
 import json
 from optimise.routing.model.solution import Solution
-from optimise.routing.preprocessing import preprocess_request as routing_preprocess_request
+from optimise.routing.preprocessing.preprocess_request import (
+    preprocess_request as routing_preprocess_request,
+)
 from optimise.routing.core.base_routing import RoutingOptimizer as Optimizer
 from optimise.routing.data_model import get_optimisation_instances
 from optimise.routing.constants import translate

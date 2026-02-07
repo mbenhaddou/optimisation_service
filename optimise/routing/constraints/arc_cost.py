@@ -57,6 +57,9 @@ class ArcCostConstraint(RoutingConstraint):
         routing = context.routing
 
         time_matrix = solver_input.time_matrix
+        cost_matrix = time_matrix
+        if solver_input.objective == "distance":
+            cost_matrix = solver_input.distance_matrix
         has_haversine = solver_input.haversine_distance is not None
         if has_haversine:
             try:
@@ -78,10 +81,10 @@ class ArcCostConstraint(RoutingConstraint):
         def time_callback(from_index: int, to_index: int) -> int:
             from_node = manager.IndexToNode(from_index)
             to_node = manager.IndexToNode(to_index)
-            return int(
-                solver_input.service_durations[from_node]
-                + time_matrix[from_node][to_node]
-            )
+            base = cost_matrix[from_node][to_node]
+            if solver_input.objective != "distance":
+                base += solver_input.service_durations[from_node]
+            return int(base)
 
         transit_index = routing.RegisterTransitCallback(time_callback)
         routing.SetArcCostEvaluatorOfAllVehicles(transit_index)

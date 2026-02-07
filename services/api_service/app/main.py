@@ -1,10 +1,17 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .config import settings
 from .db import Base, engine
 from .models import ApiKey, Job
 from .observability import RequestIdMiddleware
+from .errors import (
+    http_exception_handler,
+    unhandled_exception_handler,
+    validation_exception_handler,
+)
 from .routes.admin import router as admin_router
 from .routes.auth import router as auth_router
 from .routes.health import router as health_router
@@ -12,6 +19,14 @@ from .routes.jobs import router as jobs_router
 from .routes.metrics import router as metrics_router
 from .routes.portal import router as portal_router
 from .routes.billing import router as billing_router
+from .routes.optimize import router as optimize_router
+from .routes.matrix import router as matrix_router
+from .routes.reoptimize import router as reoptimize_router
+from .routes.webhooks import router as webhooks_router
+from .routes.analytics import router as analytics_router
+from .routes.exports import router as exports_router
+from .routes.oauth import router as oauth_router
+from .routes.reports import router as reports_router
 
 
 def create_app() -> FastAPI:
@@ -32,8 +47,20 @@ def create_app() -> FastAPI:
         )
     app.add_middleware(RequestIdMiddleware)
 
+    app.add_exception_handler(StarletteHTTPException, http_exception_handler)
+    app.add_exception_handler(RequestValidationError, validation_exception_handler)
+    app.add_exception_handler(Exception, unhandled_exception_handler)
+
     app.include_router(health_router)
     app.include_router(metrics_router)
+    app.include_router(optimize_router)
+    app.include_router(matrix_router)
+    app.include_router(reoptimize_router)
+    app.include_router(webhooks_router)
+    app.include_router(analytics_router)
+    app.include_router(exports_router)
+    app.include_router(oauth_router)
+    app.include_router(reports_router)
     app.include_router(jobs_router)
     app.include_router(admin_router)
     app.include_router(auth_router)

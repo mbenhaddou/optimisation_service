@@ -15,87 +15,144 @@ const STORAGE_KEYS = {
 const HISTORY_LIMIT = 12;
 
 const samplePayload = {
-  language: "en",
-  date_format: "%Y-%m-%d %H:%M:%S",
-  time_unit: "minutes",
-  optimization_target: "duration",
-  optimization_horizon: 1,
-  period_start: "2024-01-01 08:00:00",
-  distance_matrix_method: "haversine",
-  driving_speed_kmh: 40,
-  deterministic: true,
-  random_seed: 42,
-  orders: [
-    {
-      id: "WO-1",
-      skill: "electric",
-      priority: 3,
-      latitude: 50.8503,
-      longitude: 4.3517,
-      visiting_hour_start: "08:00:00",
-      visiting_hour_end: "17:00:00",
-      work_hours: 60,
-      street: "Rue de la Loi 16",
-      postal_code: "1000",
-      city: "Brussels",
-      country: "BE",
-    },
-    {
-      id: "WO-2",
-      skill: "electric",
-      priority: 2,
-      latitude: 50.8466,
-      longitude: 4.3528,
-      visiting_hour_start: "08:00:00",
-      visiting_hour_end: "17:00:00",
-      work_hours: 45,
-      street: "Boulevard Anspach 1",
-      postal_code: "1000",
-      city: "Brussels",
-      country: "BE",
-    },
-  ],
-  teams: {
-    TeamA: {
-      depot: {
-        id: "DEPOT-1",
-        street: "Rue Ravenstein 2",
-        postal_code: "1000",
-        city: "Brussels",
-        country: "BE",
-        latitude: 50.847,
-        longitude: 4.355,
-      },
-      workers: [
-        {
-          e_id: "W-1",
-          skills: ["electric"],
-          street: "Rue Royale 10",
-          postal_code: "1000",
-          city: "Brussels",
-          country: "BE",
-          latitude: 50.8476,
-          longitude: 4.3561,
-          day_starts_at: "08:00:00",
-          day_ends_at: "17:00:00",
-          pause_starts_at: "12:00:00",
-          pause_ends_at: "12:30:00",
-        },
-      ],
+  problem_type: "vrptw",
+  objectives: {
+    primary: "minimize_total_duration",
+    secondary: "minimize_total_distance",
+    weights: {
+      duration: 0.7,
+      distance: 0.3,
     },
   },
-  depot: {
-    id: "DEPOT-1",
-    street: "Rue Ravenstein 2",
-    postal_code: "1000",
-    city: "Brussels",
-    country: "BE",
-    latitude: 50.847,
-    longitude: 4.355,
+  vehicles: [
+    {
+      id: "vehicle_001",
+      start_location: {
+        lat: 50.847,
+        lng: 4.355,
+        address: "Rue Ravenstein 2, Brussels",
+      },
+      end_location: {
+        lat: 50.847,
+        lng: 4.355,
+      },
+      capacity: {
+        weight: 1000,
+      },
+      available_time_windows: [
+        {
+          start: "2026-02-07T08:00:00Z",
+          end: "2026-02-07T18:00:00Z",
+        },
+      ],
+      breaks: [
+        {
+          duration_minutes: 30,
+          time_window: {
+            earliest: "2026-02-07T12:00:00Z",
+            latest: "2026-02-07T14:00:00Z",
+          },
+        },
+      ],
+      max_tasks: 50,
+    },
+  ],
+  tasks: [
+    {
+      id: "task_001",
+      type: "delivery",
+      location: {
+        lat: 50.8503,
+        lng: 4.3517,
+      },
+      service_duration_minutes: 10,
+      time_windows: [
+        {
+          start: "2026-02-07T09:00:00Z",
+          end: "2026-02-07T17:00:00Z",
+        },
+      ],
+      demand: {
+        weight: 25,
+      },
+      priority: 3,
+    },
+    {
+      id: "task_002",
+      type: "delivery",
+      location: {
+        lat: 50.8466,
+        lng: 4.3528,
+      },
+      service_duration_minutes: 15,
+      time_windows: [
+        {
+          start: "2026-02-07T10:00:00Z",
+          end: "2026-02-07T16:00:00Z",
+        },
+      ],
+      demand: {
+        weight: 40,
+      },
+      priority: 2,
+    },
+  ],
+  constraints: {
+    max_route_duration_minutes: 480,
+    max_route_distance_km: 200,
+    balance_routes: true,
+    allow_overtime: false,
+  },
+  optimization: {
+    max_computation_time_seconds: 30,
+    solution_quality: "balanced",
+  },
+  options: {
+    return_detailed_metrics: true,
+    include_route_geometry: false,
   },
 };
 
 const samplePayloadText = JSON.stringify(samplePayload, null, 2);
+const sampleMatrixPayloadText = JSON.stringify(
+  {
+    locations: [
+      { lat: 50.847, lng: 4.355 },
+      { lat: 50.8503, lng: 4.3517 },
+      { lat: 50.8466, lng: 4.3528 },
+    ],
+    distance_matrix_method: "haversine",
+    driving_speed_kmh: 30,
+  },
+  null,
+  2
+);
+const sampleReoptimizePayloadText = JSON.stringify(
+  {
+    solution_id: "solution_001",
+    base_request: samplePayload,
+    changes: {
+      removed_task_ids: ["task_002"],
+      added_tasks: [
+        {
+          id: "task_003",
+          type: "delivery",
+          location: { lat: 50.852, lng: 4.3696 },
+          service_duration_minutes: 12,
+          time_windows: [
+            {
+              start: "2026-02-07T10:00:00Z",
+              end: "2026-02-07T16:00:00Z",
+            },
+          ],
+        },
+      ],
+      minimize_changes: true,
+    },
+  },
+  null,
+  2
+);
 
 type SavedPreset = {
   id: string;
@@ -118,11 +175,25 @@ type HistoryEntry = {
 
 const builtInPresets: SavedPreset[] = [
   {
-    id: "solve",
-    name: "Solve (POST)",
+    id: "optimize",
+    name: "Optimize (POST)",
     method: "POST",
-    path: "/v1/solve",
+    path: "/v1/optimize",
     body: samplePayloadText,
+  },
+  {
+    id: "matrix",
+    name: "Matrix (POST)",
+    method: "POST",
+    path: "/v1/matrix",
+    body: sampleMatrixPayloadText,
+  },
+  {
+    id: "reoptimize",
+    name: "Reoptimize (POST)",
+    method: "POST",
+    path: "/v1/reoptimize",
+    body: sampleReoptimizePayloadText,
   },
   {
     id: "jobs",
@@ -157,8 +228,8 @@ const builtInPresets: SavedPreset[] = [
 export default function ApiTestPage() {
   const [apiBase, setApiBase] = useState(defaultApiBase);
   const [method, setMethod] = useState("POST");
-  const [path, setPath] = useState("/v1/solve");
-  const [apiKeyHeader, setApiKeyHeader] = useState("X-API-Key");
+  const [path, setPath] = useState("/v1/optimize");
+  const [apiKeyHeader, setApiKeyHeader] = useState("Authorization");
   const [apiKey, setApiKey] = useState("");
   const [bearer, setBearer] = useState("");
   const [body, setBody] = useState(samplePayloadText);
@@ -287,7 +358,15 @@ export default function ApiTestPage() {
       headers["Content-Type"] = "application/json";
     }
     if (apiKey.trim()) {
-      headers[apiKeyHeader] = apiKey.trim();
+      const headerName = apiKeyHeader.trim() || "Authorization";
+      if (headerName.toLowerCase() === "authorization") {
+        const value = apiKey.trim().startsWith("Bearer ")
+          ? apiKey.trim()
+          : `Bearer ${apiKey.trim()}`;
+        headers["Authorization"] = value;
+      } else {
+        headers[headerName] = apiKey.trim();
+      }
     }
     if (bearer.trim()) {
       headers["Authorization"] = `Bearer ${bearer.trim()}`;
@@ -359,16 +438,20 @@ export default function ApiTestPage() {
           <label>Path</label>
           <input value={path} onChange={(event) => setPath(event.target.value)} />
 
-          <label>API Key Header</label>
+          <label>API Key Header (default Authorization)</label>
           <input
             value={apiKeyHeader}
             onChange={(event) => setApiKeyHeader(event.target.value)}
           />
 
-          <label>API Key</label>
-          <input value={apiKey} onChange={(event) => setApiKey(event.target.value)} />
+          <label>API Key (Bearer)</label>
+          <input
+            value={apiKey}
+            onChange={(event) => setApiKey(event.target.value)}
+            placeholder="sk-live-..."
+          />
 
-          <label>Bearer Token</label>
+          <label>Portal JWT (optional)</label>
           <input
             value={bearer}
             onChange={(event) => setBearer(event.target.value)}
@@ -433,8 +516,8 @@ export default function ApiTestPage() {
           </div>
 
           <div className="response-meta">
-            <div>Status: {status ?? "—"}</div>
-            <div>Latency: {latency ? `${latency} ms` : "—"}</div>
+            <div>Status: {status ?? "-"}</div>
+            <div>Latency: {latency ? `${latency} ms` : "-"}</div>
           </div>
 
           {error && <div className="error-box">{error}</div>}
@@ -459,8 +542,8 @@ export default function ApiTestPage() {
                 </div>
                 <div className="history-meta">
                   <span>{new Date(entry.timestamp).toLocaleString()}</span>
-                  <span>{entry.status ?? "—"}</span>
-                  <span>{entry.latency ? `${entry.latency} ms` : "—"}</span>
+                  <span>{entry.status ?? "-"}</span>
+                  <span>{entry.latency ? `${entry.latency} ms` : "-"}</span>
                 </div>
                 {entry.error && <div className="history-error">{entry.error}</div>}
                 <button

@@ -185,6 +185,7 @@ def normalize_request(input_json: Dict[str, Any]) -> Dict[str, Any]:
         order.setdefault("visits_schedule", [])
         order.setdefault("visiting_hour_start", "00:00:00")
         order.setdefault("visiting_hour_end", "23:59:59")
+        order.setdefault("required_assignment", False)
 
     return request
 
@@ -199,6 +200,9 @@ def coerce_request_types(request: Dict[str, Any], errors: List[str]) -> None:
     )
     if "randomize_response" in request:
         request["randomize_response"] = _coerce_bool(request.get("randomize_response"))
+    request["max_route_distance"] = _coerce_int(
+        request.get("max_route_distance"), "max_route_distance", errors
+    )
 
     request["optimization_horizon"] = _coerce_int(request.get("optimization_horizon"), "optimization_horizon", errors)
     request["time_limit"] = _coerce_int(request.get("time_limit"), "time_limit", errors)

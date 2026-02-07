@@ -9,10 +9,15 @@ from ..models import UsageRecord
 
 def compute_node_count(payload: Dict[str, Any]) -> int:
     orders = payload.get("orders") or payload.get("work_orders") or []
+    tasks = payload.get("tasks") or []
     try:
         order_count = len(orders)
     except TypeError:
         order_count = 0
+    try:
+        task_count = len(tasks)
+    except TypeError:
+        task_count = 0
 
     has_depot = bool(payload.get("depot"))
     if not has_depot and isinstance(payload.get("teams"), dict):
@@ -20,8 +25,10 @@ def compute_node_count(payload: Dict[str, Any]) -> int:
             if isinstance(team, dict) and team.get("depot"):
                 has_depot = True
                 break
+    if not has_depot and payload.get("vehicles"):
+        has_depot = True
 
-    return order_count + (1 if has_depot else 0)
+    return order_count + task_count + (1 if has_depot else 0)
 
 
 def compute_usage_units(payload: Dict[str, Any]) -> int:

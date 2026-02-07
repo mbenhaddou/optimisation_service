@@ -88,3 +88,29 @@ class BillingAccount(Base):
     current_period_end = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+
+class WebhookEndpoint(Base):
+    __tablename__ = "webhook_endpoints"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    name = Column(String, nullable=False)
+    url = Column(String, nullable=False)
+    events = Column(JSON, nullable=True)
+    secret = Column(String, nullable=True)
+    active = Column(Boolean, default=True, nullable=False)
+    org_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), index=True)
+
+
+class ReportSchedule(Base):
+    __tablename__ = "report_schedules"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    name = Column(String, nullable=False)
+    schedule = Column(String, nullable=False)
+    format = Column(String, default="csv", nullable=False)
+    active = Column(Boolean, default=True, nullable=False)
+    org_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), index=True)
+    last_run_at = Column(DateTime(timezone=True), nullable=True)

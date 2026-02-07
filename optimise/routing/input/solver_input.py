@@ -18,9 +18,13 @@ class SolverInput:
     starts: List[int]
     ends: List[int]
     breaks: List[List[Tuple[int, int, bool]]] = field(default_factory=list)
+    soft_time_windows: List[Optional[Tuple[int, int, int]]] = field(default_factory=list)
+    precedence_constraints: List[Tuple[int, int]] = field(default_factory=list)
+    allowed_vehicles_by_node: Dict[int, List[int]] = field(default_factory=dict)
 
     # Capacity / working time
     max_working_time: int = 0
+    max_route_distance: int = 0
 
     # Time dimension
     allow_slack: int = 0
@@ -51,6 +55,9 @@ class SolverInput:
     time_limit_seconds: Optional[int] = None
     no_improvement_limit: Optional[int] = None
 
+    # Objective
+    objective: Optional[str] = None
+
     # Depot and penalty metadata
     num_depots: Optional[int] = None
     vehicle_penalty: Optional[int] = None
@@ -62,4 +69,3 @@ class SolverInput:
 
     # Metadata
     meta: Dict[str, Any] = field(default_factory=dict)
-

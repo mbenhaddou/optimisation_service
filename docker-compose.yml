@@ -33,11 +33,12 @@ services:
       CELERY_RESULT_BACKEND: ${CELERY_RESULT_BACKEND:-redis://redis:6379/0}
       ALLOW_ANON: ${ALLOW_ANON:-true}
       AUTO_CREATE_DB: ${AUTO_CREATE_DB:-true}
-      API_KEY_HEADER: ${API_KEY_HEADER:-X-API-Key}
+      API_KEY_HEADER: ${API_KEY_HEADER:-Authorization}
       ADMIN_KEY_HEADER: ${ADMIN_KEY_HEADER:-X-Admin-Key}
       ADMIN_API_KEY: ${ADMIN_API_KEY:-}
       JWT_SECRET: ${JWT_SECRET:-change-me}
       JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
+      PASSWORD_HASH_SCHEME: ${PASSWORD_HASH_SCHEME:-pbkdf2_sha256}
       ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES:-60}
       STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
       STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
@@ -45,6 +46,7 @@ services:
       FRONTEND_BASE_URL: ${FRONTEND_BASE_URL:-http://localhost:3000}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
       LOG_FORMAT: ${LOG_FORMAT:-json}
+      LOG_HTTP_ENABLED: ${LOG_HTTP_ENABLED:-true}
       ENABLE_RATE_LIMITING: ${ENABLE_RATE_LIMITING:-true}
       API_RATE_LIMIT_PER_MINUTE: ${API_RATE_LIMIT_PER_MINUTE:-60}
       API_RATE_LIMIT_WINDOW_SECONDS: ${API_RATE_LIMIT_WINDOW_SECONDS:-60}
@@ -53,6 +55,12 @@ services:
       MAX_JOB_NODES: ${MAX_JOB_NODES:-0}
       MAX_JOB_UNITS: ${MAX_JOB_UNITS:-0}
       MAPPING_SERVICE_URL: ${MAPPING_SERVICE_URL:-}
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()\""]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   web:
     build:
@@ -64,6 +72,7 @@ services:
       - "3000:3000"
     environment:
       NEXT_PUBLIC_API_BASE: ${NEXT_PUBLIC_API_BASE:-http://localhost:8000}
+      NEXT_PUBLIC_OSRM_BASE: ${NEXT_PUBLIC_OSRM_BASE:-http://localhost:5000}
 
   worker:
     build:
@@ -81,6 +90,13 @@ services:
       MAPPING_SERVICE_URL: ${MAPPING_SERVICE_URL:-}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
       LOG_FORMAT: ${LOG_FORMAT:-json}
+      LOG_HTTP_ENABLED: ${LOG_HTTP_ENABLED:-true}
+    healthcheck:
+      test: ["CMD-SHELL", "ps aux | grep -q '[c]elery'"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
 
   osrm-prepare:
     image: osrm/osrm-backend
@@ -110,6 +126,12 @@ services:
     volumes:
       - ./data/osrm:/data
     command: ["osrm-routed", "--algorithm", "mld", "/data/belgium-latest.osrm"]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS \"http://localhost:5000/route/v1/driving/4.3561,50.8476;4.3517,50.8503?overview=false\" > /dev/null"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
 volumes:
   pg_data:
